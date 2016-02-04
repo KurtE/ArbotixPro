@@ -14,7 +14,13 @@
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 
-
+/* Kurt's option defines -----------------------------------------------------*/
+#define OPTION_XBEE_AS_PC   1   // if defined use the XBee port as an alternate to the USB
+#ifdef OPTION_XBEE_AS_PC
+#define XBEE_PORT_BAUD  1000000
+#else
+#define XBEE_PORT_BAUD 57600
+#endif
 
 ///////////////////PORTA//////////////////////////////////////////////////////////
 #define PIN_ADC4				GPIO_Pin_0
@@ -191,8 +197,6 @@
 
 //#define PIN_LED_AUX			PIN_LED5_R
 //#define PIN_LED_AUX			PIN_PC7
-
-/*
 
 
 /* Exported macro ------------------------------------------------------------*/

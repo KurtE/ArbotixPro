@@ -81,7 +81,7 @@ Discarded input sections
  .debug_aranges
                 0x0000000000000000       0x20 CM730_APP/src/serial.o
  .debug_line    0x0000000000000000      0x246 CM730_APP/src/serial.o
- .debug_str     0x0000000000000000      0x21e CM730_APP/src/serial.o
+ .debug_str     0x0000000000000000      0x24e CM730_APP/src/serial.o
  .comment       0x0000000000000000       0x71 CM730_APP/src/serial.o
  .debug_frame   0x0000000000000000      0x178 CM730_APP/src/serial.o
  .ARM.attributes
@@ -95,7 +95,6 @@ Discarded input sections
  .data          0x0000000000000000        0x0 CM730_HW/src/led.o
  .bss           0x0000000000000000        0x0 CM730_HW/src/led.o
  .bss           0x0000000000000000        0x0 CM730_HW/src/system_init.o
- .data          0x0000000000000000        0x0 CM730_HW/src/usart.o
  .data          0x0000000000000000        0x0 stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
  .bss           0x0000000000000000        0x0 stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
  .data          0x0000000000000000        0x0 stm32f10x_lib/libstm32.a(stm32f10x_bkp.o)
@@ -371,7 +370,7 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/4.9.3/crtn.o
  *(.flashtext)
                 0x0000000008000134                . = ALIGN (0x4)
 
-.text           0x0000000008000134     0x48b4
+.text           0x0000000008000134     0x499c
                 0x0000000008000134                . = ALIGN (0x4)
  *(.text)
  .text          0x0000000008000134      0x134 CM730_APP/src/stm32f10x_it.o
@@ -470,480 +469,481 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/4.9.3/crtn.o
                 0x00000000080004de                zgb_hal_tx
                 0x00000000080004fc                zgb_hal_rx
  *fill*         0x0000000008000536        0x2 
- .text          0x0000000008000538      0xa98 CM730_APP/src/CM_DXL_COM.o
+ .text          0x0000000008000538      0xa34 CM730_APP/src/CM_DXL_COM.o
                 0x0000000008000538                TorqueOff
                 0x0000000008000614                WriteControlTable
                 0x0000000008000684                WriteControlTableRangeCheck
                 0x00000000080006f0                ReturnPacket
-                0x00000000080007e8                ProcessAfterWriting
-                0x00000000080008fc                Process
- .text          0x0000000008000fd0       0x30 CM730_HW/src/button.o
-                0x0000000008000fd0                ReadButton
- .text          0x0000000008001000       0xfc CM730_HW/src/led.o
-                0x0000000008001000                LED_SetState
-                0x00000000080010a0                LED_GetState
-                0x00000000080010f4                LED_RGB_SetState
-                0x00000000080010f6                LED_RGB_GetState
- .text          0x00000000080010fc      0x62c CM730_HW/src/system_init.o
-                0x00000000080010fc                Buzzer_Configuration
-                0x0000000008001180                Timer_Configuration
-                0x000000000800120c                SysTick_Configuration
-                0x0000000008001220                RCC_Configuration
-                0x00000000080012a4                USART_Configuration
-                0x0000000008001358                USART_GetBaudrate
-                0x000000000800137c                ADC_Configuration
-                0x000000000800144c                SPI_Configuration
-                0x00000000080014bc                GPIO_Configuration
-                0x0000000008001620                NVIC_Configuration
-                0x00000000080016a0                System_Configuration
- .text          0x0000000008001728      0x1cc CM730_HW/src/system_func.o
-                0x0000000008001728                getResetSource
-                0x0000000008001786                mDelay
-                0x00000000080017b0                Dummy
-                0x00000000080017b2                uDelay
-                0x00000000080017d8                __ISR_DELAY
-                0x00000000080017ec                dxl_set_power
-                0x0000000008001804                getVoltage
-                0x000000000800181c                EEPROM_Read
-                0x000000000800182a                EEPROM_Write
-                0x00000000080018d0                EEPROM_Clear
- .text          0x00000000080018f4       0xac CM730_HW/src/adc.o
-                0x00000000080018f4                getADC
-                0x0000000008001904                __ISR_ADC
- .text          0x00000000080019a0      0x340 CM730_HW/src/usart.o
-                0x00000000080019a0                BufferClear
-                0x00000000080019b4                IsRXD_Ready
-                0x00000000080019d4                RxDBuffer
-                0x00000000080019fc                TxDData
-                0x0000000008001a84                __ISR_USART_ZIGBEE
-                0x0000000008001ab8                __ISR_USART_PC
-                0x0000000008001bd4                __ISR_USART_DXL
-                0x0000000008001cd0                enableDXLForwarding
- .text          0x0000000008001ce0      0x1d8 CM730_HW/src/sound.o
-                0x0000000008001ce0                setBuzzerPlayLength
-                0x0000000008001cec                getBuzzerPlayLength
-                0x0000000008001cf8                setBuzzerData
-                0x0000000008001d04                getBuzzerData
-                0x0000000008001d10                getBuzzerState
-                0x0000000008001d28                PlayDoremi
-                0x0000000008001d54                PlayMusic
-                0x0000000008001d6c                PlayBuzzer
-                0x0000000008001d84                SetBuzzer
-                0x0000000008001da4                setBuzzerOff
-                0x0000000008001db4                __ISR_Buzzer_Manage
- .text          0x0000000008001eb8      0x4b4 CM730_HW/src/gyro_acc.o
-                0x0000000008001eb8                Push_SPI_Data
-                0x0000000008001ed0                Clear_SPI_Data
-                0x0000000008001edc                CovertData
-                0x0000000008001ffc                getGyroX
-                0x0000000008002008                getGyroY
-                0x0000000008002014                getGyroZ
-                0x0000000008002020                getACC_X
-                0x000000000800202c                getACC_Y
-                0x0000000008002038                getACC_Z
-                0x0000000008002044                getGyroX_raw
-                0x0000000008002050                getGyroY_raw
-                0x000000000800205c                getGyroZ_raw
-                0x0000000008002068                getACC_X_raw
-                0x0000000008002074                getACC_Y_raw
-                0x0000000008002080                getACC_Z_raw
-                0x000000000800208c                Gyro_Configuration
-                0x000000000800218c                ACC_Configuration
-                0x000000000800228c                __GYRO_ACC_READ_ISR
- .text          0x000000000800236c      0x328 stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
-                0x000000000800236c                ADC_DeInit
-                0x00000000080023c4                ADC_Init
-                0x000000000800240c                ADC_StructInit
-                0x000000000800241e                ADC_Cmd
-                0x0000000008002430                ADC_DMACmd
-                0x0000000008002442                ADC_ITConfig
-                0x0000000008002454                ADC_ResetCalibration
-                0x000000000800245e                ADC_GetResetCalibrationStatus
-                0x0000000008002466                ADC_StartCalibration
-                0x0000000008002470                ADC_GetCalibrationStatus
-                0x0000000008002478                ADC_SoftwareStartConvCmd
-                0x000000000800248a                ADC_GetSoftwareStartConvStatus
-                0x0000000008002492                ADC_DiscModeChannelCountConfig
-                0x00000000080024a2                ADC_DiscModeCmd
-                0x00000000080024b4                ADC_RegularChannelConfig
-                0x0000000008002538                ADC_ExternalTrigConvCmd
-                0x000000000800254a                ADC_GetConversionValue
-                0x0000000008002550                ADC_GetDualModeConversionValue
-                0x000000000800255c                ADC_AutoInjectedConvCmd
-                0x000000000800256e                ADC_InjectedDiscModeCmd
-                0x0000000008002580                ADC_ExternalTrigInjectedConvConfig
-                0x000000000800258c                ADC_ExternalTrigInjectedConvCmd
-                0x000000000800259e                ADC_SoftwareStartInjectedConvCmd
-                0x00000000080025b0                ADC_GetSoftwareStartInjectedConvCmdStatus
-                0x00000000080025b8                ADC_InjectedChannelConfig
-                0x000000000800260c                ADC_InjectedSequencerLengthConfig
-                0x000000000800261c                ADC_SetInjectedOffset
-                0x0000000008002620                ADC_GetInjectedConversionValue
-                0x0000000008002628                ADC_AnalogWatchdogCmd
-                0x0000000008002638                ADC_AnalogWatchdogThresholdsConfig
-                0x000000000800263e                ADC_AnalogWatchdogSingleChannelConfig
-                0x000000000800264a                ADC_TempSensorVrefintCmd
-                0x0000000008002664                ADC_GetFlagStatus
-                0x0000000008002670                ADC_ClearFlag
-                0x0000000008002676                ADC_GetITStatus
-                0x000000000800268c                ADC_ClearITPendingBit
- .text          0x0000000008002694       0xc0 stm32f10x_lib/libstm32.a(stm32f10x_bkp.o)
-                0x0000000008002694                BKP_DeInit
-                0x00000000080026a6                BKP_TamperPinLevelConfig
-                0x00000000080026b0                BKP_TamperPinCmd
-                0x00000000080026bc                BKP_ITConfig
-                0x00000000080026c8                BKP_RTCOutputConfig
-                0x00000000080026e0                BKP_SetRTCCalibrationValue
-                0x00000000080026f8                BKP_WriteBackupRegister
-                0x0000000008002704                BKP_ReadBackupRegister
-                0x0000000008002712                BKP_GetFlagStatus
-                0x0000000008002720                BKP_ClearFlag
-                0x0000000008002734                BKP_GetITStatus
-                0x0000000008002740                BKP_ClearITPendingBit
- .text          0x0000000008002754      0x480 stm32f10x_lib/libstm32.a(stm32f10x_flash.o)
-                0x0000000008002754                FLASH_SetLatency
-                0x000000000800276c                FLASH_HalfCycleAccessCmd
-                0x0000000008002784                FLASH_PrefetchBufferCmd
-                0x000000000800279c                FLASH_Unlock
-                0x00000000080027b4                FLASH_Lock
-                0x00000000080027c4                FLASH_GetUserOptionByte
-                0x00000000080027d0                FLASH_GetWriteProtectionOptionByte
-                0x00000000080027dc                FLASH_GetReadOutProtectionStatus
-                0x00000000080027ec                FLASH_GetPrefetchBufferStatus
-                0x00000000080027fc                FLASH_ITConfig
-                0x0000000008002814                FLASH_GetFlagStatus
-                0x0000000008002834                FLASH_ClearFlag
-                0x0000000008002840                FLASH_GetStatus
-                0x0000000008002868                FLASH_WaitForLastOperation
-                0x000000000800289e                FLASH_ErasePage
-                0x00000000080028e0                FLASH_EraseAllPages
-                0x000000000800291c                FLASH_EraseOptionBytes
-                0x000000000800298c                FLASH_ProgramWord
-                0x00000000080029d4                FLASH_ProgramHalfWord
-                0x0000000008002a0c                FLASH_ProgramOptionByteData
-                0x0000000008002a54                FLASH_EnableWriteProtection
-                0x0000000008002af4                FLASH_ReadOutProtection
-                0x0000000008002b80                FLASH_UserOptionByteConfig
- .text          0x0000000008002bd4      0x258 stm32f10x_lib/libstm32.a(stm32f10x_gpio.o)
-                0x0000000008002bd4                GPIO_DeInit
-                0x0000000008002c78                GPIO_AFIODeInit
-                0x0000000008002c8e                GPIO_Init
-                0x0000000008002d2a                GPIO_StructInit
-                0x0000000008002d3a                GPIO_ReadInputDataBit
-                0x0000000008002d46                GPIO_ReadInputData
-                0x0000000008002d4c                GPIO_ReadOutputDataBit
-                0x0000000008002d58                GPIO_ReadOutputData
-                0x0000000008002d5e                GPIO_SetBits
-                0x0000000008002d62                GPIO_ResetBits
-                0x0000000008002d66                GPIO_WriteBit
-                0x0000000008002d70                GPIO_Write
-                0x0000000008002d74                GPIO_PinLockConfig
-                0x0000000008002d84                GPIO_EventOutputConfig
-                0x0000000008002da0                GPIO_EventOutputCmd
-                0x0000000008002dac                GPIO_PinRemapConfig
-                0x0000000008002e00                GPIO_EXTILineConfig
- .text          0x0000000008002e2c      0x314 stm32f10x_lib/libstm32.a(stm32f10x_nvic.o)
-                0x0000000008002e2c                NVIC_DeInit
-                0x0000000008002e60                NVIC_SCBDeInit
-                0x0000000008002e90                NVIC_PriorityGroupConfig
-                0x0000000008002ea4                NVIC_Init
-                0x0000000008002f28                NVIC_StructInit
-                0x0000000008002f34                NVIC_SETPRIMASK
-                0x0000000008002f38                NVIC_RESETPRIMASK
-                0x0000000008002f3c                NVIC_SETFAULTMASK
-                0x0000000008002f40                NVIC_RESETFAULTMASK
-                0x0000000008002f44                NVIC_BASEPRICONFIG
-                0x0000000008002f4a                NVIC_GetBASEPRI
-                0x0000000008002f4e                NVIC_GetCurrentPendingIRQChannel
-                0x0000000008002f5c                NVIC_GetIRQChannelPendingBitStatus
-                0x0000000008002f7c                NVIC_SetIRQChannelPendingBit
-                0x0000000008002f88                NVIC_ClearIRQChannelPendingBit
-                0x0000000008002fa0                NVIC_GetCurrentActiveHandler
-                0x0000000008002fb0                NVIC_GetIRQChannelActiveBitStatus
-                0x0000000008002fd0                NVIC_GetCPUID
-                0x0000000008002fdc                NVIC_SetVectorTable
-                0x0000000008002ff0                NVIC_GenerateSystemReset
-                0x0000000008003000                NVIC_GenerateCoreReset
-                0x0000000008003010                NVIC_SystemLPConfig
-                0x0000000008003028                NVIC_SystemHandlerConfig
-                0x0000000008003048                NVIC_SystemHandlerPriorityConfig
-                0x0000000008003094                NVIC_GetSystemHandlerPendingBitStatus
-                0x00000000080030b0                NVIC_SetSystemHandlerPendingBit
-                0x00000000080030c8                NVIC_ClearSystemHandlerPendingBit
-                0x00000000080030e0                NVIC_GetSystemHandlerActiveBitStatus
-                0x00000000080030fc                NVIC_GetFaultHandlerSources
-                0x000000000800312c                NVIC_GetFaultAddress
- .text          0x0000000008003140       0xc8 stm32f10x_lib/libstm32.a(stm32f10x_pwr.o)
-                0x0000000008003140                PWR_DeInit
-                0x000000000800315a                PWR_BackupAccessCmd
-                0x0000000008003164                PWR_PVDCmd
-                0x0000000008003170                PWR_PVDLevelConfig
-                0x0000000008003184                PWR_WakeUpPinCmd
-                0x0000000008003190                PWR_EnterSTOPMode
-                0x00000000080031bc                PWR_EnterSTANDBYMode
-                0x00000000080031e4                PWR_GetFlagStatus
-                0x00000000080031f8                PWR_ClearFlag
- .text          0x0000000008003208      0x33c stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
-                0x0000000008003208                RCC_DeInit
-                0x0000000008003244                RCC_HSEConfig
-                0x000000000800327c                RCC_AdjustHSICalibrationValue
-                0x0000000008003290                RCC_HSICmd
-                0x000000000800329c                RCC_PLLConfig
-                0x00000000080032b0                RCC_PLLCmd
-                0x00000000080032bc                RCC_SYSCLKConfig
-                0x00000000080032d0                RCC_GetSYSCLKSource
-                0x00000000080032e0                RCC_HCLKConfig
-                0x00000000080032f4                RCC_PCLK1Config
-                0x0000000008003308                RCC_PCLK2Config
-                0x000000000800331c                RCC_ITConfig
-                0x0000000008003334                RCC_USBCLKConfig
-                0x0000000008003340                RCC_ADCCLKConfig
-                0x0000000008003354                RCC_LSEConfig
-                0x0000000008003374                RCC_LSICmd
-                0x0000000008003380                RCC_RTCCLKConfig
-                0x0000000008003390                RCC_RTCCLKCmd
-                0x000000000800339c                RCC_GetClocksFreq
-                0x0000000008003420                RCC_AHBPeriphClockCmd
-                0x0000000008003438                RCC_APB2PeriphClockCmd
-                0x0000000008003450                RCC_APB1PeriphClockCmd
-                0x0000000008003468                RCC_APB2PeriphResetCmd
-                0x0000000008003480                RCC_APB1PeriphResetCmd
-                0x0000000008003498                RCC_BackupResetCmd
-                0x00000000080034a4                RCC_ClockSecuritySystemCmd
-                0x00000000080034b0                RCC_MCOConfig
-                0x00000000080034bc                RCC_GetFlagStatus
-                0x00000000080034e4                RCC_WaitForHSEStartUp
-                0x0000000008003512                RCC_ClearFlag
-                0x0000000008003524                RCC_GetITStatus
-                0x0000000008003538                RCC_ClearITPendingBit
- .text          0x0000000008003544      0x2bc stm32f10x_lib/libstm32.a(stm32f10x_spi.o)
-                0x0000000008003544                SPI_I2S_DeInit
-                0x00000000080035a4                SPI_Init
-                0x00000000080035e2                I2S_Init
-                0x0000000008003682                SPI_StructInit
-                0x000000000800369a                I2S_StructInit
-                0x00000000080036ac                SPI_Cmd
-                0x00000000080036c4                I2S_Cmd
-                0x00000000080036dc                SPI_I2S_ITConfig
-                0x00000000080036fa                SPI_I2S_DMACmd
-                0x000000000800370c                SPI_I2S_SendData
-                0x0000000008003710                SPI_I2S_ReceiveData
-                0x0000000008003716                SPI_NSSInternalSoftwareConfig
-                0x0000000008003734                SPI_SSOutputCmd
-                0x000000000800374c                SPI_DataSizeConfig
-                0x0000000008003762                SPI_TransmitCRC
-                0x000000000800376e                SPI_CalculateCRC
-                0x0000000008003786                SPI_GetCRC
-                0x0000000008003792                SPI_GetCRCPolynomial
-                0x0000000008003798                SPI_BiDirectionalLineConfig
-                0x00000000080037b4                SPI_I2S_GetFlagStatus
-                0x00000000080037c0                SPI_I2S_ClearFlag
-                0x00000000080037c8                SPI_I2S_GetITStatus
-                0x00000000080037ee                SPI_I2S_ClearITPendingBit
- .text          0x0000000008003800       0x8c stm32f10x_lib/libstm32.a(stm32f10x_systick.o)
-                0x0000000008003800                SysTick_CLKSourceConfig
-                0x0000000008003818                SysTick_SetReload
-                0x0000000008003824                SysTick_CounterCmd
-                0x000000000800384c                SysTick_ITConfig
-                0x0000000008003864                SysTick_GetCounter
-                0x0000000008003870                SysTick_GetFlagStatus
- .text          0x000000000800388c      0xa44 stm32f10x_lib/libstm32.a(stm32f10x_tim.o)
-                0x00000000080038f8                TIM_DeInit
-                0x00000000080039c0                TIM_TimeBaseInit
-                0x00000000080039fc                TIM_OC1Init
-                0x0000000008003a70                TIM_OC2Init
-                0x0000000008003af8                TIM_OC3Init
-                0x0000000008003b7c                TIM_OC4Init
-                0x0000000008003be4                TIM_BDTRConfig
-                0x0000000008003c06                TIM_TimeBaseStructInit
-                0x0000000008003c18                TIM_OCStructInit
-                0x0000000008003c2c                TIM_ICStructInit
-                0x0000000008003c3c                TIM_BDTRStructInit
-                0x0000000008003c4e                TIM_Cmd
-                0x0000000008003c66                TIM_CtrlPWMOutputs
-                0x0000000008003c82                TIM_ITConfig
-                0x0000000008003c94                TIM_GenerateEvent
-                0x0000000008003c98                TIM_DMAConfig
-                0x0000000008003ca0                TIM_DMACmd
-                0x0000000008003cb2                TIM_InternalClockConfig
-                0x0000000008003cc0                TIM_ITRxExternalClockConfig
-                0x0000000008003cda                TIM_TIxExternalClockConfig
-                0x0000000008003d0e                TIM_ETRConfig
-                0x0000000008003d22                TIM_ETRClockMode1Config
-                0x0000000008003d3c                TIM_ETRClockMode2Config
-                0x0000000008003d50                TIM_PrescalerConfig
-                0x0000000008003d56                TIM_CounterModeConfig
-                0x0000000008003d66                TIM_SelectInputTrigger
-                0x0000000008003d76                TIM_EncoderInterfaceConfig
-                0x0000000008003db2                TIM_ForcedOC1Config
-                0x0000000008003dc2                TIM_ForcedOC2Config
-                0x0000000008003dd6                TIM_ForcedOC3Config
-                0x0000000008003de6                TIM_ForcedOC4Config
-                0x0000000008003dfa                TIM_ARRPreloadConfig
-                0x0000000008003e12                TIM_SelectCOM
-                0x0000000008003e2a                TIM_SelectCCDMA
-                0x0000000008003e42                TIM_CCPreloadControl
-                0x0000000008003e5a                TIM_OC1PreloadConfig
-                0x0000000008003e6a                TIM_OC2PreloadConfig
-                0x0000000008003e7e                TIM_OC3PreloadConfig
-                0x0000000008003e8e                TIM_OC4PreloadConfig
-                0x0000000008003ea2                TIM_OC1FastConfig
-                0x0000000008003eb2                TIM_OC2FastConfig
-                0x0000000008003ec6                TIM_OC3FastConfig
-                0x0000000008003ed6                TIM_OC4FastConfig
-                0x0000000008003eea                TIM_ClearOC1Ref
-                0x0000000008003efa                TIM_ClearOC2Ref
-                0x0000000008003f0a                TIM_ClearOC3Ref
-                0x0000000008003f1a                TIM_ClearOC4Ref
-                0x0000000008003f2a                TIM_OC1PolarityConfig
-                0x0000000008003f3a                TIM_OC1NPolarityConfig
-                0x0000000008003f4a                TIM_OC2PolarityConfig
-                0x0000000008003f5e                TIM_OC2NPolarityConfig
-                0x0000000008003f72                TIM_OC3PolarityConfig
-                0x0000000008003f86                TIM_OC3NPolarityConfig
-                0x0000000008003f9a                TIM_OC4PolarityConfig
-                0x0000000008003fae                TIM_CCxCmd
-                0x0000000008003fca                TIM_CCxNCmd
-                0x0000000008003fe6                TIM_SelectOCxM
-                0x000000000800402a                TIM_UpdateDisableConfig
-                0x0000000008004042                TIM_UpdateRequestConfig
-                0x000000000800405a                TIM_SelectHallSensor
-                0x0000000008004072                TIM_SelectOnePulseMode
-                0x0000000008004088                TIM_SelectOutputTrigger
-                0x000000000800409e                TIM_SelectSlaveMode
-                0x00000000080040b4                TIM_SelectMasterSlaveMode
-                0x00000000080040ca                TIM_SetCounter
-                0x00000000080040ce                TIM_SetAutoreload
-                0x00000000080040d2                TIM_SetCompare1
-                0x00000000080040d6                TIM_SetCompare2
-                0x00000000080040da                TIM_SetCompare3
-                0x00000000080040de                TIM_SetCompare4
-                0x00000000080040e4                TIM_SetIC1Prescaler
-                0x00000000080040fa                TIM_SetIC2Prescaler
-                0x0000000008004114                TIM_PWMIConfig
-                0x0000000008004182                TIM_SetIC3Prescaler
-                0x0000000008004198                TIM_SetIC4Prescaler
-                0x00000000080041b2                TIM_ICInit
-                0x0000000008004268                TIM_SetClockDivision
-                0x0000000008004278                TIM_GetCapture1
-                0x000000000800427e                TIM_GetCapture2
-                0x0000000008004284                TIM_GetCapture3
-                0x000000000800428a                TIM_GetCapture4
-                0x0000000008004292                TIM_GetCounter
-                0x0000000008004298                TIM_GetPrescaler
-                0x000000000800429e                TIM_GetFlagStatus
-                0x00000000080042aa                TIM_ClearFlag
-                0x00000000080042b2                TIM_GetITStatus
-                0x00000000080042c8                TIM_ClearITPendingBit
- .text          0x00000000080042d0      0x344 stm32f10x_lib/libstm32.a(stm32f10x_usart.o)
-                0x00000000080042d0                USART_DeInit
-                0x0000000008004364                USART_Init
-                0x00000000080043ec                USART_StructInit
-                0x0000000008004402                USART_ClockInit
-                0x0000000008004422                USART_ClockStructInit
-                0x000000000800442e                USART_Cmd
-                0x0000000008004446                USART_ITConfig
-                0x0000000008004478                USART_DMACmd
-                0x000000000800448a                USART_SetAddress
-                0x00000000080044a0                USART_WakeUpConfig
-                0x00000000080044b6                USART_ReceiverWakeUpCmd
-                0x00000000080044ce                USART_LINBreakDetectLengthConfig
-                0x00000000080044e4                USART_LINCmd
-                0x00000000080044fc                USART_SendData
-                0x0000000008004504                USART_ReceiveData
-                0x000000000800450c                USART_SendBreak
-                0x0000000008004518                USART_SetGuardTime
-                0x000000000800452a                USART_SetPrescaler
-                0x000000000800453c                USART_SmartCardCmd
-                0x0000000008004554                USART_SmartCardNACKCmd
-                0x000000000800456c                USART_HalfDuplexCmd
-                0x0000000008004584                USART_IrDAConfig
-                0x000000000800459a                USART_IrDACmd
-                0x00000000080045b2                USART_GetFlagStatus
-                0x00000000080045be                USART_ClearFlag
-                0x00000000080045c6                USART_GetITStatus
-                0x0000000008004604                USART_ClearITPendingBit
- .text          0x0000000008004614       0x6e stm32f10x_lib/libstm32.a(cortexm3_macro.o)
-                0x0000000008004614                __WFI
-                0x0000000008004618                __WFE
-                0x000000000800461c                __SEV
-                0x0000000008004620                __ISB
-                0x0000000008004626                __DSB
-                0x000000000800462c                __DMB
-                0x0000000008004632                __SVC
-                0x0000000008004636                __MRS_CONTROL
-                0x000000000800463c                __MSR_CONTROL
-                0x0000000008004646                __MRS_PSP
-                0x000000000800464c                __MSR_PSP
-                0x0000000008004652                __MRS_MSP
-                0x0000000008004658                __MSR_MSP
-                0x000000000800465e                __SETPRIMASK
-                0x0000000008004662                __RESETPRIMASK
-                0x0000000008004666                __SETFAULTMASK
-                0x000000000800466a                __RESETFAULTMASK
-                0x000000000800466e                __BASEPRICONFIG
-                0x0000000008004674                __GetBASEPRI
-                0x000000000800467a                __REV_HalfWord
-                0x000000000800467e                __REV_Word
- *fill*         0x0000000008004682        0x2 
- .text          0x0000000008004684       0x50 stm32f10x_lib/libstm32.a(stm32f10x_vector.o)
-                0x0000000008004684                Reset_Handler
+                0x00000000080007b4                ProcessAfterWriting
+                0x00000000080008c8                Process
+ .text          0x0000000008000f6c       0x30 CM730_HW/src/button.o
+                0x0000000008000f6c                ReadButton
+ .text          0x0000000008000f9c       0xfc CM730_HW/src/led.o
+                0x0000000008000f9c                LED_SetState
+                0x000000000800103c                LED_GetState
+                0x0000000008001090                LED_RGB_SetState
+                0x0000000008001092                LED_RGB_GetState
+ .text          0x0000000008001098      0x62c CM730_HW/src/system_init.o
+                0x0000000008001098                Buzzer_Configuration
+                0x000000000800111c                Timer_Configuration
+                0x00000000080011a8                SysTick_Configuration
+                0x00000000080011bc                RCC_Configuration
+                0x0000000008001240                USART_Configuration
+                0x00000000080012f4                USART_GetBaudrate
+                0x0000000008001318                ADC_Configuration
+                0x00000000080013e8                SPI_Configuration
+                0x0000000008001458                GPIO_Configuration
+                0x00000000080015bc                NVIC_Configuration
+                0x000000000800163c                System_Configuration
+ .text          0x00000000080016c4      0x1cc CM730_HW/src/system_func.o
+                0x00000000080016c4                getResetSource
+                0x0000000008001722                mDelay
+                0x000000000800174c                Dummy
+                0x000000000800174e                uDelay
+                0x0000000008001774                __ISR_DELAY
+                0x0000000008001788                dxl_set_power
+                0x00000000080017a0                getVoltage
+                0x00000000080017b8                EEPROM_Read
+                0x00000000080017c6                EEPROM_Write
+                0x000000000800186c                EEPROM_Clear
+ .text          0x0000000008001890       0xac CM730_HW/src/adc.o
+                0x0000000008001890                getADC
+                0x00000000080018a0                __ISR_ADC
+ .text          0x000000000800193c      0x48c CM730_HW/src/usart.o
+                0x000000000800193c                BufferClear
+                0x0000000008001950                IsRXD_Ready
+                0x0000000008001970                RxDBuffer
+                0x0000000008001998                TxDData
+                0x0000000008001a20                startPCTxData
+                0x0000000008001a68                __ISR_USART_ZIGBEE
+                0x0000000008001b90                __ISR_USART_PC
+                0x0000000008001cb8                __ISR_USART_DXL
+                0x0000000008001db8                enableDXLForwarding
+ .text          0x0000000008001dc8      0x1d8 CM730_HW/src/sound.o
+                0x0000000008001dc8                setBuzzerPlayLength
+                0x0000000008001dd4                getBuzzerPlayLength
+                0x0000000008001de0                setBuzzerData
+                0x0000000008001dec                getBuzzerData
+                0x0000000008001df8                getBuzzerState
+                0x0000000008001e10                PlayDoremi
+                0x0000000008001e3c                PlayMusic
+                0x0000000008001e54                PlayBuzzer
+                0x0000000008001e6c                SetBuzzer
+                0x0000000008001e8c                setBuzzerOff
+                0x0000000008001e9c                __ISR_Buzzer_Manage
+ .text          0x0000000008001fa0      0x4b4 CM730_HW/src/gyro_acc.o
+                0x0000000008001fa0                Push_SPI_Data
+                0x0000000008001fb8                Clear_SPI_Data
+                0x0000000008001fc4                CovertData
+                0x00000000080020e4                getGyroX
+                0x00000000080020f0                getGyroY
+                0x00000000080020fc                getGyroZ
+                0x0000000008002108                getACC_X
+                0x0000000008002114                getACC_Y
+                0x0000000008002120                getACC_Z
+                0x000000000800212c                getGyroX_raw
+                0x0000000008002138                getGyroY_raw
+                0x0000000008002144                getGyroZ_raw
+                0x0000000008002150                getACC_X_raw
+                0x000000000800215c                getACC_Y_raw
+                0x0000000008002168                getACC_Z_raw
+                0x0000000008002174                Gyro_Configuration
+                0x0000000008002274                ACC_Configuration
+                0x0000000008002374                __GYRO_ACC_READ_ISR
+ .text          0x0000000008002454      0x328 stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
+                0x0000000008002454                ADC_DeInit
+                0x00000000080024ac                ADC_Init
+                0x00000000080024f4                ADC_StructInit
+                0x0000000008002506                ADC_Cmd
+                0x0000000008002518                ADC_DMACmd
+                0x000000000800252a                ADC_ITConfig
+                0x000000000800253c                ADC_ResetCalibration
+                0x0000000008002546                ADC_GetResetCalibrationStatus
+                0x000000000800254e                ADC_StartCalibration
+                0x0000000008002558                ADC_GetCalibrationStatus
+                0x0000000008002560                ADC_SoftwareStartConvCmd
+                0x0000000008002572                ADC_GetSoftwareStartConvStatus
+                0x000000000800257a                ADC_DiscModeChannelCountConfig
+                0x000000000800258a                ADC_DiscModeCmd
+                0x000000000800259c                ADC_RegularChannelConfig
+                0x0000000008002620                ADC_ExternalTrigConvCmd
+                0x0000000008002632                ADC_GetConversionValue
+                0x0000000008002638                ADC_GetDualModeConversionValue
+                0x0000000008002644                ADC_AutoInjectedConvCmd
+                0x0000000008002656                ADC_InjectedDiscModeCmd
+                0x0000000008002668                ADC_ExternalTrigInjectedConvConfig
+                0x0000000008002674                ADC_ExternalTrigInjectedConvCmd
+                0x0000000008002686                ADC_SoftwareStartInjectedConvCmd
+                0x0000000008002698                ADC_GetSoftwareStartInjectedConvCmdStatus
+                0x00000000080026a0                ADC_InjectedChannelConfig
+                0x00000000080026f4                ADC_InjectedSequencerLengthConfig
+                0x0000000008002704                ADC_SetInjectedOffset
+                0x0000000008002708                ADC_GetInjectedConversionValue
+                0x0000000008002710                ADC_AnalogWatchdogCmd
+                0x0000000008002720                ADC_AnalogWatchdogThresholdsConfig
+                0x0000000008002726                ADC_AnalogWatchdogSingleChannelConfig
+                0x0000000008002732                ADC_TempSensorVrefintCmd
+                0x000000000800274c                ADC_GetFlagStatus
+                0x0000000008002758                ADC_ClearFlag
+                0x000000000800275e                ADC_GetITStatus
+                0x0000000008002774                ADC_ClearITPendingBit
+ .text          0x000000000800277c       0xc0 stm32f10x_lib/libstm32.a(stm32f10x_bkp.o)
+                0x000000000800277c                BKP_DeInit
+                0x000000000800278e                BKP_TamperPinLevelConfig
+                0x0000000008002798                BKP_TamperPinCmd
+                0x00000000080027a4                BKP_ITConfig
+                0x00000000080027b0                BKP_RTCOutputConfig
+                0x00000000080027c8                BKP_SetRTCCalibrationValue
+                0x00000000080027e0                BKP_WriteBackupRegister
+                0x00000000080027ec                BKP_ReadBackupRegister
+                0x00000000080027fa                BKP_GetFlagStatus
+                0x0000000008002808                BKP_ClearFlag
+                0x000000000800281c                BKP_GetITStatus
+                0x0000000008002828                BKP_ClearITPendingBit
+ .text          0x000000000800283c      0x480 stm32f10x_lib/libstm32.a(stm32f10x_flash.o)
+                0x000000000800283c                FLASH_SetLatency
+                0x0000000008002854                FLASH_HalfCycleAccessCmd
+                0x000000000800286c                FLASH_PrefetchBufferCmd
+                0x0000000008002884                FLASH_Unlock
+                0x000000000800289c                FLASH_Lock
+                0x00000000080028ac                FLASH_GetUserOptionByte
+                0x00000000080028b8                FLASH_GetWriteProtectionOptionByte
+                0x00000000080028c4                FLASH_GetReadOutProtectionStatus
+                0x00000000080028d4                FLASH_GetPrefetchBufferStatus
+                0x00000000080028e4                FLASH_ITConfig
+                0x00000000080028fc                FLASH_GetFlagStatus
+                0x000000000800291c                FLASH_ClearFlag
+                0x0000000008002928                FLASH_GetStatus
+                0x0000000008002950                FLASH_WaitForLastOperation
+                0x0000000008002986                FLASH_ErasePage
+                0x00000000080029c8                FLASH_EraseAllPages
+                0x0000000008002a04                FLASH_EraseOptionBytes
+                0x0000000008002a74                FLASH_ProgramWord
+                0x0000000008002abc                FLASH_ProgramHalfWord
+                0x0000000008002af4                FLASH_ProgramOptionByteData
+                0x0000000008002b3c                FLASH_EnableWriteProtection
+                0x0000000008002bdc                FLASH_ReadOutProtection
+                0x0000000008002c68                FLASH_UserOptionByteConfig
+ .text          0x0000000008002cbc      0x258 stm32f10x_lib/libstm32.a(stm32f10x_gpio.o)
+                0x0000000008002cbc                GPIO_DeInit
+                0x0000000008002d60                GPIO_AFIODeInit
+                0x0000000008002d76                GPIO_Init
+                0x0000000008002e12                GPIO_StructInit
+                0x0000000008002e22                GPIO_ReadInputDataBit
+                0x0000000008002e2e                GPIO_ReadInputData
+                0x0000000008002e34                GPIO_ReadOutputDataBit
+                0x0000000008002e40                GPIO_ReadOutputData
+                0x0000000008002e46                GPIO_SetBits
+                0x0000000008002e4a                GPIO_ResetBits
+                0x0000000008002e4e                GPIO_WriteBit
+                0x0000000008002e58                GPIO_Write
+                0x0000000008002e5c                GPIO_PinLockConfig
+                0x0000000008002e6c                GPIO_EventOutputConfig
+                0x0000000008002e88                GPIO_EventOutputCmd
+                0x0000000008002e94                GPIO_PinRemapConfig
+                0x0000000008002ee8                GPIO_EXTILineConfig
+ .text          0x0000000008002f14      0x314 stm32f10x_lib/libstm32.a(stm32f10x_nvic.o)
+                0x0000000008002f14                NVIC_DeInit
+                0x0000000008002f48                NVIC_SCBDeInit
+                0x0000000008002f78                NVIC_PriorityGroupConfig
+                0x0000000008002f8c                NVIC_Init
+                0x0000000008003010                NVIC_StructInit
+                0x000000000800301c                NVIC_SETPRIMASK
+                0x0000000008003020                NVIC_RESETPRIMASK
+                0x0000000008003024                NVIC_SETFAULTMASK
+                0x0000000008003028                NVIC_RESETFAULTMASK
+                0x000000000800302c                NVIC_BASEPRICONFIG
+                0x0000000008003032                NVIC_GetBASEPRI
+                0x0000000008003036                NVIC_GetCurrentPendingIRQChannel
+                0x0000000008003044                NVIC_GetIRQChannelPendingBitStatus
+                0x0000000008003064                NVIC_SetIRQChannelPendingBit
+                0x0000000008003070                NVIC_ClearIRQChannelPendingBit
+                0x0000000008003088                NVIC_GetCurrentActiveHandler
+                0x0000000008003098                NVIC_GetIRQChannelActiveBitStatus
+                0x00000000080030b8                NVIC_GetCPUID
+                0x00000000080030c4                NVIC_SetVectorTable
+                0x00000000080030d8                NVIC_GenerateSystemReset
+                0x00000000080030e8                NVIC_GenerateCoreReset
+                0x00000000080030f8                NVIC_SystemLPConfig
+                0x0000000008003110                NVIC_SystemHandlerConfig
+                0x0000000008003130                NVIC_SystemHandlerPriorityConfig
+                0x000000000800317c                NVIC_GetSystemHandlerPendingBitStatus
+                0x0000000008003198                NVIC_SetSystemHandlerPendingBit
+                0x00000000080031b0                NVIC_ClearSystemHandlerPendingBit
+                0x00000000080031c8                NVIC_GetSystemHandlerActiveBitStatus
+                0x00000000080031e4                NVIC_GetFaultHandlerSources
+                0x0000000008003214                NVIC_GetFaultAddress
+ .text          0x0000000008003228       0xc8 stm32f10x_lib/libstm32.a(stm32f10x_pwr.o)
+                0x0000000008003228                PWR_DeInit
+                0x0000000008003242                PWR_BackupAccessCmd
+                0x000000000800324c                PWR_PVDCmd
+                0x0000000008003258                PWR_PVDLevelConfig
+                0x000000000800326c                PWR_WakeUpPinCmd
+                0x0000000008003278                PWR_EnterSTOPMode
+                0x00000000080032a4                PWR_EnterSTANDBYMode
+                0x00000000080032cc                PWR_GetFlagStatus
+                0x00000000080032e0                PWR_ClearFlag
+ .text          0x00000000080032f0      0x33c stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
+                0x00000000080032f0                RCC_DeInit
+                0x000000000800332c                RCC_HSEConfig
+                0x0000000008003364                RCC_AdjustHSICalibrationValue
+                0x0000000008003378                RCC_HSICmd
+                0x0000000008003384                RCC_PLLConfig
+                0x0000000008003398                RCC_PLLCmd
+                0x00000000080033a4                RCC_SYSCLKConfig
+                0x00000000080033b8                RCC_GetSYSCLKSource
+                0x00000000080033c8                RCC_HCLKConfig
+                0x00000000080033dc                RCC_PCLK1Config
+                0x00000000080033f0                RCC_PCLK2Config
+                0x0000000008003404                RCC_ITConfig
+                0x000000000800341c                RCC_USBCLKConfig
+                0x0000000008003428                RCC_ADCCLKConfig
+                0x000000000800343c                RCC_LSEConfig
+                0x000000000800345c                RCC_LSICmd
+                0x0000000008003468                RCC_RTCCLKConfig
+                0x0000000008003478                RCC_RTCCLKCmd
+                0x0000000008003484                RCC_GetClocksFreq
+                0x0000000008003508                RCC_AHBPeriphClockCmd
+                0x0000000008003520                RCC_APB2PeriphClockCmd
+                0x0000000008003538                RCC_APB1PeriphClockCmd
+                0x0000000008003550                RCC_APB2PeriphResetCmd
+                0x0000000008003568                RCC_APB1PeriphResetCmd
+                0x0000000008003580                RCC_BackupResetCmd
+                0x000000000800358c                RCC_ClockSecuritySystemCmd
+                0x0000000008003598                RCC_MCOConfig
+                0x00000000080035a4                RCC_GetFlagStatus
+                0x00000000080035cc                RCC_WaitForHSEStartUp
+                0x00000000080035fa                RCC_ClearFlag
+                0x000000000800360c                RCC_GetITStatus
+                0x0000000008003620                RCC_ClearITPendingBit
+ .text          0x000000000800362c      0x2bc stm32f10x_lib/libstm32.a(stm32f10x_spi.o)
+                0x000000000800362c                SPI_I2S_DeInit
+                0x000000000800368c                SPI_Init
+                0x00000000080036ca                I2S_Init
+                0x000000000800376a                SPI_StructInit
+                0x0000000008003782                I2S_StructInit
+                0x0000000008003794                SPI_Cmd
+                0x00000000080037ac                I2S_Cmd
+                0x00000000080037c4                SPI_I2S_ITConfig
+                0x00000000080037e2                SPI_I2S_DMACmd
+                0x00000000080037f4                SPI_I2S_SendData
+                0x00000000080037f8                SPI_I2S_ReceiveData
+                0x00000000080037fe                SPI_NSSInternalSoftwareConfig
+                0x000000000800381c                SPI_SSOutputCmd
+                0x0000000008003834                SPI_DataSizeConfig
+                0x000000000800384a                SPI_TransmitCRC
+                0x0000000008003856                SPI_CalculateCRC
+                0x000000000800386e                SPI_GetCRC
+                0x000000000800387a                SPI_GetCRCPolynomial
+                0x0000000008003880                SPI_BiDirectionalLineConfig
+                0x000000000800389c                SPI_I2S_GetFlagStatus
+                0x00000000080038a8                SPI_I2S_ClearFlag
+                0x00000000080038b0                SPI_I2S_GetITStatus
+                0x00000000080038d6                SPI_I2S_ClearITPendingBit
+ .text          0x00000000080038e8       0x8c stm32f10x_lib/libstm32.a(stm32f10x_systick.o)
+                0x00000000080038e8                SysTick_CLKSourceConfig
+                0x0000000008003900                SysTick_SetReload
+                0x000000000800390c                SysTick_CounterCmd
+                0x0000000008003934                SysTick_ITConfig
+                0x000000000800394c                SysTick_GetCounter
+                0x0000000008003958                SysTick_GetFlagStatus
+ .text          0x0000000008003974      0xa44 stm32f10x_lib/libstm32.a(stm32f10x_tim.o)
+                0x00000000080039e0                TIM_DeInit
+                0x0000000008003aa8                TIM_TimeBaseInit
+                0x0000000008003ae4                TIM_OC1Init
+                0x0000000008003b58                TIM_OC2Init
+                0x0000000008003be0                TIM_OC3Init
+                0x0000000008003c64                TIM_OC4Init
+                0x0000000008003ccc                TIM_BDTRConfig
+                0x0000000008003cee                TIM_TimeBaseStructInit
+                0x0000000008003d00                TIM_OCStructInit
+                0x0000000008003d14                TIM_ICStructInit
+                0x0000000008003d24                TIM_BDTRStructInit
+                0x0000000008003d36                TIM_Cmd
+                0x0000000008003d4e                TIM_CtrlPWMOutputs
+                0x0000000008003d6a                TIM_ITConfig
+                0x0000000008003d7c                TIM_GenerateEvent
+                0x0000000008003d80                TIM_DMAConfig
+                0x0000000008003d88                TIM_DMACmd
+                0x0000000008003d9a                TIM_InternalClockConfig
+                0x0000000008003da8                TIM_ITRxExternalClockConfig
+                0x0000000008003dc2                TIM_TIxExternalClockConfig
+                0x0000000008003df6                TIM_ETRConfig
+                0x0000000008003e0a                TIM_ETRClockMode1Config
+                0x0000000008003e24                TIM_ETRClockMode2Config
+                0x0000000008003e38                TIM_PrescalerConfig
+                0x0000000008003e3e                TIM_CounterModeConfig
+                0x0000000008003e4e                TIM_SelectInputTrigger
+                0x0000000008003e5e                TIM_EncoderInterfaceConfig
+                0x0000000008003e9a                TIM_ForcedOC1Config
+                0x0000000008003eaa                TIM_ForcedOC2Config
+                0x0000000008003ebe                TIM_ForcedOC3Config
+                0x0000000008003ece                TIM_ForcedOC4Config
+                0x0000000008003ee2                TIM_ARRPreloadConfig
+                0x0000000008003efa                TIM_SelectCOM
+                0x0000000008003f12                TIM_SelectCCDMA
+                0x0000000008003f2a                TIM_CCPreloadControl
+                0x0000000008003f42                TIM_OC1PreloadConfig
+                0x0000000008003f52                TIM_OC2PreloadConfig
+                0x0000000008003f66                TIM_OC3PreloadConfig
+                0x0000000008003f76                TIM_OC4PreloadConfig
+                0x0000000008003f8a                TIM_OC1FastConfig
+                0x0000000008003f9a                TIM_OC2FastConfig
+                0x0000000008003fae                TIM_OC3FastConfig
+                0x0000000008003fbe                TIM_OC4FastConfig
+                0x0000000008003fd2                TIM_ClearOC1Ref
+                0x0000000008003fe2                TIM_ClearOC2Ref
+                0x0000000008003ff2                TIM_ClearOC3Ref
+                0x0000000008004002                TIM_ClearOC4Ref
+                0x0000000008004012                TIM_OC1PolarityConfig
+                0x0000000008004022                TIM_OC1NPolarityConfig
+                0x0000000008004032                TIM_OC2PolarityConfig
+                0x0000000008004046                TIM_OC2NPolarityConfig
+                0x000000000800405a                TIM_OC3PolarityConfig
+                0x000000000800406e                TIM_OC3NPolarityConfig
+                0x0000000008004082                TIM_OC4PolarityConfig
+                0x0000000008004096                TIM_CCxCmd
+                0x00000000080040b2                TIM_CCxNCmd
+                0x00000000080040ce                TIM_SelectOCxM
+                0x0000000008004112                TIM_UpdateDisableConfig
+                0x000000000800412a                TIM_UpdateRequestConfig
+                0x0000000008004142                TIM_SelectHallSensor
+                0x000000000800415a                TIM_SelectOnePulseMode
+                0x0000000008004170                TIM_SelectOutputTrigger
+                0x0000000008004186                TIM_SelectSlaveMode
+                0x000000000800419c                TIM_SelectMasterSlaveMode
+                0x00000000080041b2                TIM_SetCounter
+                0x00000000080041b6                TIM_SetAutoreload
+                0x00000000080041ba                TIM_SetCompare1
+                0x00000000080041be                TIM_SetCompare2
+                0x00000000080041c2                TIM_SetCompare3
+                0x00000000080041c6                TIM_SetCompare4
+                0x00000000080041cc                TIM_SetIC1Prescaler
+                0x00000000080041e2                TIM_SetIC2Prescaler
+                0x00000000080041fc                TIM_PWMIConfig
+                0x000000000800426a                TIM_SetIC3Prescaler
+                0x0000000008004280                TIM_SetIC4Prescaler
+                0x000000000800429a                TIM_ICInit
+                0x0000000008004350                TIM_SetClockDivision
+                0x0000000008004360                TIM_GetCapture1
+                0x0000000008004366                TIM_GetCapture2
+                0x000000000800436c                TIM_GetCapture3
+                0x0000000008004372                TIM_GetCapture4
+                0x000000000800437a                TIM_GetCounter
+                0x0000000008004380                TIM_GetPrescaler
+                0x0000000008004386                TIM_GetFlagStatus
+                0x0000000008004392                TIM_ClearFlag
+                0x000000000800439a                TIM_GetITStatus
+                0x00000000080043b0                TIM_ClearITPendingBit
+ .text          0x00000000080043b8      0x344 stm32f10x_lib/libstm32.a(stm32f10x_usart.o)
+                0x00000000080043b8                USART_DeInit
+                0x000000000800444c                USART_Init
+                0x00000000080044d4                USART_StructInit
+                0x00000000080044ea                USART_ClockInit
+                0x000000000800450a                USART_ClockStructInit
+                0x0000000008004516                USART_Cmd
+                0x000000000800452e                USART_ITConfig
+                0x0000000008004560                USART_DMACmd
+                0x0000000008004572                USART_SetAddress
+                0x0000000008004588                USART_WakeUpConfig
+                0x000000000800459e                USART_ReceiverWakeUpCmd
+                0x00000000080045b6                USART_LINBreakDetectLengthConfig
+                0x00000000080045cc                USART_LINCmd
+                0x00000000080045e4                USART_SendData
+                0x00000000080045ec                USART_ReceiveData
+                0x00000000080045f4                USART_SendBreak
+                0x0000000008004600                USART_SetGuardTime
+                0x0000000008004612                USART_SetPrescaler
+                0x0000000008004624                USART_SmartCardCmd
+                0x000000000800463c                USART_SmartCardNACKCmd
+                0x0000000008004654                USART_HalfDuplexCmd
+                0x000000000800466c                USART_IrDAConfig
+                0x0000000008004682                USART_IrDACmd
+                0x000000000800469a                USART_GetFlagStatus
+                0x00000000080046a6                USART_ClearFlag
+                0x00000000080046ae                USART_GetITStatus
+                0x00000000080046ec                USART_ClearITPendingBit
+ .text          0x00000000080046fc       0x6e stm32f10x_lib/libstm32.a(cortexm3_macro.o)
+                0x00000000080046fc                __WFI
+                0x0000000008004700                __WFE
+                0x0000000008004704                __SEV
+                0x0000000008004708                __ISB
+                0x000000000800470e                __DSB
+                0x0000000008004714                __DMB
+                0x000000000800471a                __SVC
+                0x000000000800471e                __MRS_CONTROL
+                0x0000000008004724                __MSR_CONTROL
+                0x000000000800472e                __MRS_PSP
+                0x0000000008004734                __MSR_PSP
+                0x000000000800473a                __MRS_MSP
+                0x0000000008004740                __MSR_MSP
+                0x0000000008004746                __SETPRIMASK
+                0x000000000800474a                __RESETPRIMASK
+                0x000000000800474e                __SETFAULTMASK
+                0x0000000008004752                __RESETFAULTMASK
+                0x0000000008004756                __BASEPRICONFIG
+                0x000000000800475c                __GetBASEPRI
+                0x0000000008004762                __REV_HalfWord
+                0x0000000008004766                __REV_Word
+ *fill*         0x000000000800476a        0x2 
+ .text          0x000000000800476c       0x50 stm32f10x_lib/libstm32.a(stm32f10x_vector.o)
+                0x000000000800476c                Reset_Handler
  *(.text.*)
- .text.startup  0x00000000080046d4       0x80 CM730_APP/src/main.o
-                0x00000000080046d4                main
+ .text.startup  0x00000000080047bc       0x80 CM730_APP/src/main.o
+                0x00000000080047bc                main
  *(.rodata)
- .rodata        0x0000000008004754      0x280 CM730_HW/src/sound.o
-                0x0000000008004754                DoremiTable
-                0x00000000080047bc                SoundTable
-                0x00000000080047f6                Sound31
-                0x0000000008004818                Sound30
-                0x0000000008004828                Sound25
-                0x0000000008004836                Sound24
-                0x000000000800484a                Sound23
-                0x0000000008004856                Sound22
-                0x000000000800487e                Sound21
-                0x000000000800488e                Sound20
-                0x0000000008004898                Sound15
-                0x00000000080048aa                Sound13
-                0x00000000080048be                Sound12
-                0x00000000080048d0                Sound11
-                0x00000000080048dc                Sound10
-                0x00000000080048e6                Sound8
-                0x00000000080048f6                Sound7
-                0x0000000008004902                Sound6
-                0x000000000800490c                Sound5
-                0x000000000800491c                Sound4
-                0x0000000008004928                Sound3
-                0x0000000008004934                Sound2
-                0x0000000008004946                Sound1
-                0x0000000008004956                Sound0
-                0x0000000008004968                Music7
-                0x0000000008004984                Music6
-                0x00000000080049ac                Music1
-                0x00000000080049c0                Music0
- .rodata        0x00000000080049d4       0x14 stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
+ .rodata        0x000000000800483c      0x280 CM730_HW/src/sound.o
+                0x000000000800483c                DoremiTable
+                0x00000000080048a4                SoundTable
+                0x00000000080048de                Sound31
+                0x0000000008004900                Sound30
+                0x0000000008004910                Sound25
+                0x000000000800491e                Sound24
+                0x0000000008004932                Sound23
+                0x000000000800493e                Sound22
+                0x0000000008004966                Sound21
+                0x0000000008004976                Sound20
+                0x0000000008004980                Sound15
+                0x0000000008004992                Sound13
+                0x00000000080049a6                Sound12
+                0x00000000080049b8                Sound11
+                0x00000000080049c4                Sound10
+                0x00000000080049ce                Sound8
+                0x00000000080049de                Sound7
+                0x00000000080049ea                Sound6
+                0x00000000080049f4                Sound5
+                0x0000000008004a04                Sound4
+                0x0000000008004a10                Sound3
+                0x0000000008004a1c                Sound2
+                0x0000000008004a2e                Sound1
+                0x0000000008004a3e                Sound0
+                0x0000000008004a50                Music7
+                0x0000000008004a6c                Music6
+                0x0000000008004a94                Music1
+                0x0000000008004aa8                Music0
+ .rodata        0x0000000008004abc       0x14 stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
  *(.rodata*)
  *(.glue_7)
  .glue_7        0x0000000000000000        0x0 linker stubs
  *(.glue_7t)
  .glue_7t       0x0000000000000000        0x0 linker stubs
-                0x00000000080049e8                . = ALIGN (0x4)
-                0x00000000080049e8                _etext = .
-                0x00000000080049e8                _sidata = _etext
+                0x0000000008004ad0                . = ALIGN (0x4)
+                0x0000000008004ad0                _etext = .
+                0x0000000008004ad0                _sidata = _etext
 
-.vfp11_veneer   0x00000000080049e8        0x0
+.vfp11_veneer   0x0000000008004ad0        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x00000000080049e8        0x0
+.v4_bx          0x0000000008004ad0        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x00000000080049e8        0x0
+.iplt           0x0000000008004ad0        0x0
  .iplt          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/4.9.3/crtbegin.o
 
-.rel.dyn        0x00000000080049e8        0x0
+.rel.dyn        0x0000000008004ad0        0x0
  .rel.iplt      0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/4.9.3/crtbegin.o
 
-.data           0x0000000020000000      0x2f4 load address 0x00000000080049e8
+.data           0x0000000020000000      0x2f8 load address 0x0000000008004ad0
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -965,139 +965,141 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/4.9.3/crtn.o
  *fill*         0x000000002000023e        0x2 
  .data          0x0000000020000240       0x40 CM730_HW/src/adc.o
                 0x0000000020000240                ADC_Channel
- .data          0x0000000020000280       0x6a CM730_HW/src/sound.o
-                0x0000000020000280                MusicTable
-                0x00000000200002e8                Music_TempoContainer
- .data          0x00000000200002ea        0x9 CM730_HW/src/gyro_acc.o
-                0x00000000200002ea                SPI_TxBuffer
+ .data          0x0000000020000280        0x4 CM730_HW/src/usart.o
+                0x0000000020000280                g_usartPC
+ .data          0x0000000020000284       0x6a CM730_HW/src/sound.o
+                0x0000000020000284                MusicTable
+                0x00000000200002ec                Music_TempoContainer
+ .data          0x00000000200002ee        0x9 CM730_HW/src/gyro_acc.o
+                0x00000000200002ee                SPI_TxBuffer
  *(.data.*)
-                0x00000000200002f4                . = ALIGN (0x4)
- *fill*         0x00000000200002f3        0x1 
-                0x00000000200002f4                _edata = .
+                0x00000000200002f8                . = ALIGN (0x4)
+ *fill*         0x00000000200002f7        0x1 
+                0x00000000200002f8                _edata = .
 
-.igot.plt       0x00000000200002f4        0x0 load address 0x0000000008004cdc
+.igot.plt       0x00000000200002f8        0x0 load address 0x0000000008004dc8
  .igot.plt      0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/4.9.3/crtbegin.o
 
-.bss            0x00000000200002f4     0x1114 load address 0x0000000008004cdc
-                0x00000000200002f4                . = ALIGN (0x4)
-                0x00000000200002f4                _sbss = .
+.bss            0x00000000200002f8     0x1114 load address 0x0000000008004dc8
+                0x00000000200002f8                . = ALIGN (0x4)
+                0x00000000200002f8                _sbss = .
  *(.bss)
- .bss           0x00000000200002f4        0x4 CM730_APP/src/stm32f10x_it.o
-                0x00000000200002f4                gwCounter1
-                0x00000000200002f7                Counter
- .bss           0x00000000200002f8        0x5 CM730_APP/src/isr.o
-                0x00000000200002f9                bLedBlinkFlag
-                0x00000000200002fa                wLED_Timer
-                0x00000000200002fc                bLED_Counter
- *fill*         0x00000000200002fd        0x1 
- .bss           0x00000000200002fe        0xe CM730_APP/src/zigbee.o
-                0x00000000200002fe                gbRcvFlag
-                0x0000000020000300                gwRcvData
-                0x0000000020000302                gbRcvPacketNum
-                0x0000000020000303                gbRcvPacket
-                0x000000002000030a                gwMyZigbeeID
- .bss           0x000000002000030c      0x87a CM730_APP/src/CM_DXL_COM.o
-                0x000000002000030c                gbTxD0BufferWritePointer
-                0x000000002000030d                gbTxD0BufferReadPointer
-                0x000000002000030e                gbpTxD0Buffer
-                0x000000002000040e                gbStartAddress
-                0x000000002000040f                gbpParameter
-                0x000000002000050f                gbpControlTable
-                0x000000002000056a                gbParameterLength
-                0x000000002000056b                gbInstruction
-                0x000000002000056c                gbRxID
-                0x000000002000056d                gbInterruptCheckError
-                0x000000002000056e                gbTxD1BufferWritePointer
-                0x000000002000056f                gbpTxD1Buffer
-                0x000000002000066f                gbTxD1Transmitting
-                0x0000000020000670                gbTxD1BufferReadPointer
-                0x0000000020000671                gbDxlPwr
-                0x0000000020000672                gbLEDHeadR
-                0x0000000020000673                gbLEDHeadG
-                0x0000000020000674                gbLEDHeadB
-                0x0000000020000675                gbLEDEyeR
-                0x0000000020000676                gbLEDEyeG
-                0x0000000020000677                gbLEDEyeB
-                0x0000000020000678                gbMiliSec
-                0x0000000020000679                gbRxBufferReadPointer
-                0x000000002000067a                gbRxBufferWritePointer
-                0x000000002000067b                gbpRxInterruptBuffer
-                0x000000002000077b                gbRxD0BufferReadPointer
-                0x000000002000077c                gbRxD0BufferWritePointer
-                0x000000002000077d                gbpRxD0Buffer
-                0x000000002000087d                gbLEDPwm
-                0x000000002000087e                gbLEDBlinkCounter
-                0x000000002000087f                gbpRegParameter
-                0x000000002000097f                gbRegParameterLength
-                0x0000000020000980                gbRegAddress
-                0x0000000020000981                gbTxD0Transmitting
-                0x0000000020000982                gbRxD1BufferReadPointer
-                0x0000000020000983                gbRxD1BufferWritePointer
-                0x0000000020000984                gbpRxD1Buffer
-                0x0000000020000a84                gbTxBufferReadPointer
-                0x0000000020000a85                gbTxBufferWritePointer
-                0x0000000020000a86                gbpTxInterruptBuffer
- *fill*         0x0000000020000b86        0x2 
- .bss           0x0000000020000b88        0xc CM730_HW/src/system_func.o
-                0x0000000020000b88                gwTimingDelay
-                0x0000000020000b90                tmpdly
- .bss           0x0000000020000b94       0x21 CM730_HW/src/adc.o
-                0x0000000020000b94                ADC_Value
-                0x0000000020000bb4                ADC_Channel_Index
- *fill*         0x0000000020000bb5        0x1 
- .bss           0x0000000020000bb6      0x805 CM730_HW/src/usart.o
-                0x0000000020000bb6                gwUSART_ZIGBEE_WritePtr
-                0x0000000020000bb8                gwUSART_ZIGBEE_ReadPtr
-                0x0000000020000bba                gwpUSART_ZIGBEE_Buffer
-                0x00000000200013ba                gbDXLForwarding
- *fill*         0x00000000200013bb        0x1 
- .bss           0x00000000200013bc       0x1e CM730_HW/src/sound.o
-                0x00000000200013bc                gbBuzzerPlayLength
-                0x00000000200013bd                gbBuzzerData
-                0x00000000200013be                Music_Play
-                0x00000000200013c0                Doremi_Play
-                0x00000000200013c2                Doremi_Index
-                0x00000000200013c4                Doremi_TimCount
-                0x00000000200013c6                Music_MusicIndex
-                0x00000000200013c8                Music_ReadIndex
-                0x00000000200013ca                Music_TempoCnt
-                0x00000000200013cc                Music_CurrentPacket
-                0x00000000200013ce                Music_CurrentLen
-                0x00000000200013d0                Music_CurrentSound
-                0x00000000200013d2                Music_WaveFlag
-                0x00000000200013d4                Music_WaveStep
-                0x00000000200013d6                Music_StartDelayFlag
-                0x00000000200013d8                Music_WaveBuffer
- .bss           0x00000000200013da       0x2e CM730_HW/src/gyro_acc.o
-                0x00000000200013da                SPI_RxBufferPointer
-                0x00000000200013db                SPI_RxBuffer
-                0x00000000200013ee                Gyro_X_raw
-                0x00000000200013f0                Gyro_Y_raw
-                0x00000000200013f2                Gyro_Z_raw
-                0x00000000200013f4                ACC_X_raw
-                0x00000000200013f6                ACC_Y_raw
-                0x00000000200013f8                ACC_Z_raw
-                0x00000000200013fa                Gyro_X
-                0x00000000200013fc                Gyro_Y
-                0x00000000200013fe                Gyro_Z
-                0x0000000020001400                ACC_X
-                0x0000000020001402                ACC_Y
-                0x0000000020001404                ACC_Z
-                0x0000000020001406                GYRO_ACC_ENABLE
-                0x0000000020001407                SPI_TxBufferPointer
+ .bss           0x00000000200002f8        0x4 CM730_APP/src/stm32f10x_it.o
+                0x00000000200002f8                gwCounter1
+                0x00000000200002fb                Counter
+ .bss           0x00000000200002fc        0x5 CM730_APP/src/isr.o
+                0x00000000200002fd                bLedBlinkFlag
+                0x00000000200002fe                wLED_Timer
+                0x0000000020000300                bLED_Counter
+ *fill*         0x0000000020000301        0x1 
+ .bss           0x0000000020000302        0xe CM730_APP/src/zigbee.o
+                0x0000000020000302                gbRcvFlag
+                0x0000000020000304                gwRcvData
+                0x0000000020000306                gbRcvPacketNum
+                0x0000000020000307                gbRcvPacket
+                0x000000002000030e                gwMyZigbeeID
+ .bss           0x0000000020000310      0x87a CM730_APP/src/CM_DXL_COM.o
+                0x0000000020000310                gbTxD0BufferWritePointer
+                0x0000000020000311                gbTxD0BufferReadPointer
+                0x0000000020000312                gbpTxD0Buffer
+                0x0000000020000412                gbStartAddress
+                0x0000000020000413                gbpParameter
+                0x0000000020000513                gbpControlTable
+                0x000000002000056e                gbParameterLength
+                0x000000002000056f                gbInstruction
+                0x0000000020000570                gbRxID
+                0x0000000020000571                gbInterruptCheckError
+                0x0000000020000572                gbTxD1BufferWritePointer
+                0x0000000020000573                gbpTxD1Buffer
+                0x0000000020000673                gbTxD1Transmitting
+                0x0000000020000674                gbDxlPwr
+                0x0000000020000675                gbLEDHeadR
+                0x0000000020000676                gbLEDHeadG
+                0x0000000020000677                gbLEDHeadB
+                0x0000000020000678                gbLEDEyeR
+                0x0000000020000679                gbLEDEyeG
+                0x000000002000067a                gbLEDEyeB
+                0x000000002000067b                gbMiliSec
+                0x000000002000067c                gbRxBufferReadPointer
+                0x000000002000067d                gbRxBufferWritePointer
+                0x000000002000067e                gbpRxInterruptBuffer
+                0x000000002000077e                gbRxD0BufferReadPointer
+                0x000000002000077f                gbRxD0BufferWritePointer
+                0x0000000020000780                gbpRxD0Buffer
+                0x0000000020000880                gbLEDPwm
+                0x0000000020000881                gbLEDBlinkCounter
+                0x0000000020000882                gbpRegParameter
+                0x0000000020000982                gbRegParameterLength
+                0x0000000020000983                gbRegAddress
+                0x0000000020000984                gbTxD0Transmitting
+                0x0000000020000985                gbTxD1BufferReadPointer
+                0x0000000020000986                gbRxD1BufferReadPointer
+                0x0000000020000987                gbRxD1BufferWritePointer
+                0x0000000020000988                gbpRxD1Buffer
+                0x0000000020000a88                gbTxBufferReadPointer
+                0x0000000020000a89                gbTxBufferWritePointer
+                0x0000000020000a8a                gbpTxInterruptBuffer
+ *fill*         0x0000000020000b8a        0x2 
+ .bss           0x0000000020000b8c        0xc CM730_HW/src/system_func.o
+                0x0000000020000b8c                gwTimingDelay
+                0x0000000020000b94                tmpdly
+ .bss           0x0000000020000b98       0x21 CM730_HW/src/adc.o
+                0x0000000020000b98                ADC_Value
+                0x0000000020000bb8                ADC_Channel_Index
+ *fill*         0x0000000020000bb9        0x1 
+ .bss           0x0000000020000bba      0x805 CM730_HW/src/usart.o
+                0x0000000020000bba                gwUSART_ZIGBEE_WritePtr
+                0x0000000020000bbc                gwUSART_ZIGBEE_ReadPtr
+                0x0000000020000bbe                gwpUSART_ZIGBEE_Buffer
+                0x00000000200013be                gbDXLForwarding
+ *fill*         0x00000000200013bf        0x1 
+ .bss           0x00000000200013c0       0x1e CM730_HW/src/sound.o
+                0x00000000200013c0                gbBuzzerPlayLength
+                0x00000000200013c1                gbBuzzerData
+                0x00000000200013c2                Music_Play
+                0x00000000200013c4                Doremi_Play
+                0x00000000200013c6                Doremi_Index
+                0x00000000200013c8                Doremi_TimCount
+                0x00000000200013ca                Music_MusicIndex
+                0x00000000200013cc                Music_ReadIndex
+                0x00000000200013ce                Music_TempoCnt
+                0x00000000200013d0                Music_CurrentPacket
+                0x00000000200013d2                Music_CurrentLen
+                0x00000000200013d4                Music_CurrentSound
+                0x00000000200013d6                Music_WaveFlag
+                0x00000000200013d8                Music_WaveStep
+                0x00000000200013da                Music_StartDelayFlag
+                0x00000000200013dc                Music_WaveBuffer
+ .bss           0x00000000200013de       0x2e CM730_HW/src/gyro_acc.o
+                0x00000000200013de                SPI_RxBufferPointer
+                0x00000000200013df                SPI_RxBuffer
+                0x00000000200013f2                Gyro_X_raw
+                0x00000000200013f4                Gyro_Y_raw
+                0x00000000200013f6                Gyro_Z_raw
+                0x00000000200013f8                ACC_X_raw
+                0x00000000200013fa                ACC_Y_raw
+                0x00000000200013fc                ACC_Z_raw
+                0x00000000200013fe                Gyro_X
+                0x0000000020001400                Gyro_Y
+                0x0000000020001402                Gyro_Z
+                0x0000000020001404                ACC_X
+                0x0000000020001406                ACC_Y
+                0x0000000020001408                ACC_Z
+                0x000000002000140a                GYRO_ACC_ENABLE
+                0x000000002000140b                SPI_TxBufferPointer
  *(COMMON)
-                0x0000000020001408                . = ALIGN (0x4)
-                0x0000000020001408                _ebss = .
-                0x0000000020001408                PROVIDE (end, _ebss)
-                0x0000000020001408                PROVIDE (_end, _ebss)
+                0x000000002000140c                . = ALIGN (0x4)
+                0x000000002000140c                _ebss = .
+                0x000000002000140c                PROVIDE (end, _ebss)
+                0x000000002000140c                PROVIDE (_end, _ebss)
 
-._usrstack      0x0000000020001408      0x100 load address 0x0000000008005df0
-                0x0000000020001408                . = ALIGN (0x4)
-                0x0000000020001408                _susrstack = .
-                0x0000000020001508                . = (. + _Minimum_Stack_Size)
- *fill*         0x0000000020001408      0x100 
-                0x0000000020001508                . = ALIGN (0x4)
-                0x0000000020001508                _eusrstack = .
+._usrstack      0x000000002000140c      0x100 load address 0x0000000008005edc
+                0x000000002000140c                . = ALIGN (0x4)
+                0x000000002000140c                _susrstack = .
+                0x000000002000150c                . = (. + _Minimum_Stack_Size)
+ *fill*         0x000000002000140c      0x100 
+                0x000000002000150c                . = ALIGN (0x4)
+                0x000000002000150c                _eusrstack = .
 
 .b1text
  *(.b1text)
@@ -1123,8 +1125,8 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/4.9.3/crtn.o
  *(.eb3text)
  *(.eb3rodata)
  *(.eb3rodata*)
-                0x0000000020001508                __exidx_start = .
-                0x0000000020001508                __exidx_end = .
+                0x000000002000150c                __exidx_start = .
+                0x000000002000150c                __exidx_end = .
 
 /DISCARD/
  libc.a(*)
@@ -1308,97 +1310,97 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/4.9.3/crtn.o
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0xd968
+.debug_info     0x0000000000000000     0xda14
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0xa36 CM730_APP/src/stm32f10x_it.o
- .debug_info    0x0000000000000a36      0x267 CM730_APP/src/main.o
- .debug_info    0x0000000000000c9d      0x33f CM730_APP/src/isr.o
- .debug_info    0x0000000000000fdc      0x5fd CM730_APP/src/zigbee.o
- .debug_info    0x00000000000015d9      0x1fa CM730_APP/src/zgb_hal.o
- .debug_info    0x00000000000017d3      0xc87 CM730_APP/src/CM_DXL_COM.o
- .debug_info    0x000000000000245a      0x18e CM730_HW/src/button.o
- .debug_info    0x00000000000025e8      0x349 CM730_HW/src/led.o
- .debug_info    0x0000000000002931     0x1a3d CM730_HW/src/system_init.o
- .debug_info    0x000000000000436e      0x66f CM730_HW/src/system_func.o
- .debug_info    0x00000000000049dd      0x348 CM730_HW/src/adc.o
- .debug_info    0x0000000000004d25      0x82b CM730_HW/src/usart.o
- .debug_info    0x0000000000005550      0x9e8 CM730_HW/src/sound.o
- .debug_info    0x0000000000005f38      0xcbf CM730_HW/src/gyro_acc.o
- .debug_info    0x0000000000006bf7      0xb5a stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
- .debug_info    0x0000000000007751      0x708 stm32f10x_lib/libstm32.a(stm32f10x_bkp.o)
- .debug_info    0x0000000000007e59      0x8bb stm32f10x_lib/libstm32.a(stm32f10x_flash.o)
- .debug_info    0x0000000000008714      0x747 stm32f10x_lib/libstm32.a(stm32f10x_gpio.o)
- .debug_info    0x0000000000008e5b      0x968 stm32f10x_lib/libstm32.a(stm32f10x_nvic.o)
- .debug_info    0x00000000000097c3      0x2c6 stm32f10x_lib/libstm32.a(stm32f10x_pwr.o)
- .debug_info    0x0000000000009a89      0x871 stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
- .debug_info    0x000000000000a2fa      0x959 stm32f10x_lib/libstm32.a(stm32f10x_spi.o)
- .debug_info    0x000000000000ac53      0x20b stm32f10x_lib/libstm32.a(stm32f10x_systick.o)
- .debug_info    0x000000000000ae5e     0x1f42 stm32f10x_lib/libstm32.a(stm32f10x_tim.o)
- .debug_info    0x000000000000cda0      0xa2c stm32f10x_lib/libstm32.a(stm32f10x_usart.o)
- .debug_info    0x000000000000d7cc       0x89 stm32f10x_lib/libstm32.a(cortexm3_macro.o)
- .debug_info    0x000000000000d855      0x113 stm32f10x_lib/libstm32.a(stm32f10x_vector.o)
+ .debug_info    0x0000000000000a36      0x25c CM730_APP/src/main.o
+ .debug_info    0x0000000000000c92      0x33f CM730_APP/src/isr.o
+ .debug_info    0x0000000000000fd1      0x5ff CM730_APP/src/zigbee.o
+ .debug_info    0x00000000000015d0      0x1fa CM730_APP/src/zgb_hal.o
+ .debug_info    0x00000000000017ca      0xc4d CM730_APP/src/CM_DXL_COM.o
+ .debug_info    0x0000000000002417      0x18e CM730_HW/src/button.o
+ .debug_info    0x00000000000025a5      0x349 CM730_HW/src/led.o
+ .debug_info    0x00000000000028ee     0x1a3d CM730_HW/src/system_init.o
+ .debug_info    0x000000000000432b      0x66f CM730_HW/src/system_func.o
+ .debug_info    0x000000000000499a      0x348 CM730_HW/src/adc.o
+ .debug_info    0x0000000000004ce2      0x8ea CM730_HW/src/usart.o
+ .debug_info    0x00000000000055cc      0x9e8 CM730_HW/src/sound.o
+ .debug_info    0x0000000000005fb4      0xcbf CM730_HW/src/gyro_acc.o
+ .debug_info    0x0000000000006c73      0xb5a stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
+ .debug_info    0x00000000000077cd      0x708 stm32f10x_lib/libstm32.a(stm32f10x_bkp.o)
+ .debug_info    0x0000000000007ed5      0x8bb stm32f10x_lib/libstm32.a(stm32f10x_flash.o)
+ .debug_info    0x0000000000008790      0x747 stm32f10x_lib/libstm32.a(stm32f10x_gpio.o)
+ .debug_info    0x0000000000008ed7      0x968 stm32f10x_lib/libstm32.a(stm32f10x_nvic.o)
+ .debug_info    0x000000000000983f      0x2c6 stm32f10x_lib/libstm32.a(stm32f10x_pwr.o)
+ .debug_info    0x0000000000009b05      0x871 stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
+ .debug_info    0x000000000000a376      0x959 stm32f10x_lib/libstm32.a(stm32f10x_spi.o)
+ .debug_info    0x000000000000accf      0x20b stm32f10x_lib/libstm32.a(stm32f10x_systick.o)
+ .debug_info    0x000000000000aeda     0x1f42 stm32f10x_lib/libstm32.a(stm32f10x_tim.o)
+ .debug_info    0x000000000000ce1c      0xa2c stm32f10x_lib/libstm32.a(stm32f10x_usart.o)
+ .debug_info    0x000000000000d848       0xb9 stm32f10x_lib/libstm32.a(cortexm3_macro.o)
+ .debug_info    0x000000000000d901      0x113 stm32f10x_lib/libstm32.a(stm32f10x_vector.o)
 
-.debug_abbrev   0x0000000000000000     0x2f5e
+.debug_abbrev   0x0000000000000000     0x2fb1
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x21a CM730_APP/src/stm32f10x_it.o
- .debug_abbrev  0x000000000000021a      0x12e CM730_APP/src/main.o
- .debug_abbrev  0x0000000000000348      0x13e CM730_APP/src/isr.o
- .debug_abbrev  0x0000000000000486      0x279 CM730_APP/src/zigbee.o
- .debug_abbrev  0x00000000000006ff       0xf8 CM730_APP/src/zgb_hal.o
- .debug_abbrev  0x00000000000007f7      0x225 CM730_APP/src/CM_DXL_COM.o
- .debug_abbrev  0x0000000000000a1c      0x10b CM730_HW/src/button.o
- .debug_abbrev  0x0000000000000b27      0x18c CM730_HW/src/led.o
- .debug_abbrev  0x0000000000000cb3      0x285 CM730_HW/src/system_init.o
- .debug_abbrev  0x0000000000000f38      0x2aa CM730_HW/src/system_func.o
- .debug_abbrev  0x00000000000011e2      0x188 CM730_HW/src/adc.o
- .debug_abbrev  0x000000000000136a      0x1f6 CM730_HW/src/usart.o
- .debug_abbrev  0x0000000000001560      0x1e5 CM730_HW/src/sound.o
- .debug_abbrev  0x0000000000001745      0x211 CM730_HW/src/gyro_acc.o
- .debug_abbrev  0x0000000000001956      0x196 stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
- .debug_abbrev  0x0000000000001aec      0x188 stm32f10x_lib/libstm32.a(stm32f10x_bkp.o)
- .debug_abbrev  0x0000000000001c74      0x24e stm32f10x_lib/libstm32.a(stm32f10x_flash.o)
- .debug_abbrev  0x0000000000001ec2      0x1e8 stm32f10x_lib/libstm32.a(stm32f10x_gpio.o)
- .debug_abbrev  0x00000000000020aa      0x26d stm32f10x_lib/libstm32.a(stm32f10x_nvic.o)
- .debug_abbrev  0x0000000000002317      0x174 stm32f10x_lib/libstm32.a(stm32f10x_pwr.o)
- .debug_abbrev  0x000000000000248b      0x227 stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
- .debug_abbrev  0x00000000000026b2      0x1ed stm32f10x_lib/libstm32.a(stm32f10x_spi.o)
- .debug_abbrev  0x000000000000289f      0x128 stm32f10x_lib/libstm32.a(stm32f10x_systick.o)
- .debug_abbrev  0x00000000000029c7      0x2be stm32f10x_lib/libstm32.a(stm32f10x_tim.o)
- .debug_abbrev  0x0000000000002c85      0x1ed stm32f10x_lib/libstm32.a(stm32f10x_usart.o)
- .debug_abbrev  0x0000000000002e72       0x14 stm32f10x_lib/libstm32.a(cortexm3_macro.o)
- .debug_abbrev  0x0000000000002e86       0xd8 stm32f10x_lib/libstm32.a(stm32f10x_vector.o)
+ .debug_abbrev  0x000000000000021a      0x121 CM730_APP/src/main.o
+ .debug_abbrev  0x000000000000033b      0x13e CM730_APP/src/isr.o
+ .debug_abbrev  0x0000000000000479      0x279 CM730_APP/src/zigbee.o
+ .debug_abbrev  0x00000000000006f2       0xf8 CM730_APP/src/zgb_hal.o
+ .debug_abbrev  0x00000000000007ea      0x26a CM730_APP/src/CM_DXL_COM.o
+ .debug_abbrev  0x0000000000000a54      0x10b CM730_HW/src/button.o
+ .debug_abbrev  0x0000000000000b5f      0x18c CM730_HW/src/led.o
+ .debug_abbrev  0x0000000000000ceb      0x285 CM730_HW/src/system_init.o
+ .debug_abbrev  0x0000000000000f70      0x2aa CM730_HW/src/system_func.o
+ .debug_abbrev  0x000000000000121a      0x188 CM730_HW/src/adc.o
+ .debug_abbrev  0x00000000000013a2      0x211 CM730_HW/src/usart.o
+ .debug_abbrev  0x00000000000015b3      0x1e5 CM730_HW/src/sound.o
+ .debug_abbrev  0x0000000000001798      0x211 CM730_HW/src/gyro_acc.o
+ .debug_abbrev  0x00000000000019a9      0x196 stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
+ .debug_abbrev  0x0000000000001b3f      0x188 stm32f10x_lib/libstm32.a(stm32f10x_bkp.o)
+ .debug_abbrev  0x0000000000001cc7      0x24e stm32f10x_lib/libstm32.a(stm32f10x_flash.o)
+ .debug_abbrev  0x0000000000001f15      0x1e8 stm32f10x_lib/libstm32.a(stm32f10x_gpio.o)
+ .debug_abbrev  0x00000000000020fd      0x26d stm32f10x_lib/libstm32.a(stm32f10x_nvic.o)
+ .debug_abbrev  0x000000000000236a      0x174 stm32f10x_lib/libstm32.a(stm32f10x_pwr.o)
+ .debug_abbrev  0x00000000000024de      0x227 stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
+ .debug_abbrev  0x0000000000002705      0x1ed stm32f10x_lib/libstm32.a(stm32f10x_spi.o)
+ .debug_abbrev  0x00000000000028f2      0x128 stm32f10x_lib/libstm32.a(stm32f10x_systick.o)
+ .debug_abbrev  0x0000000000002a1a      0x2be stm32f10x_lib/libstm32.a(stm32f10x_tim.o)
+ .debug_abbrev  0x0000000000002cd8      0x1ed stm32f10x_lib/libstm32.a(stm32f10x_usart.o)
+ .debug_abbrev  0x0000000000002ec5       0x14 stm32f10x_lib/libstm32.a(cortexm3_macro.o)
+ .debug_abbrev  0x0000000000002ed9       0xd8 stm32f10x_lib/libstm32.a(stm32f10x_vector.o)
 
-.debug_line     0x0000000000000000     0x2aed
+.debug_line     0x0000000000000000     0x2b0d
  *(.debug_line)
  .debug_line    0x0000000000000000      0x200 CM730_APP/src/stm32f10x_it.o
  .debug_line    0x0000000000000200      0x120 CM730_APP/src/main.o
  .debug_line    0x0000000000000320       0xe5 CM730_APP/src/isr.o
  .debug_line    0x0000000000000405      0x166 CM730_APP/src/zigbee.o
  .debug_line    0x000000000000056b       0xbb CM730_APP/src/zgb_hal.o
- .debug_line    0x0000000000000626      0x3e4 CM730_APP/src/CM_DXL_COM.o
- .debug_line    0x0000000000000a0a       0x99 CM730_HW/src/button.o
- .debug_line    0x0000000000000aa3      0x126 CM730_HW/src/led.o
- .debug_line    0x0000000000000bc9      0x315 CM730_HW/src/system_init.o
- .debug_line    0x0000000000000ede      0x1b2 CM730_HW/src/system_func.o
- .debug_line    0x0000000000001090       0xde CM730_HW/src/adc.o
- .debug_line    0x000000000000116e      0x13b CM730_HW/src/usart.o
- .debug_line    0x00000000000012a9      0x115 CM730_HW/src/sound.o
- .debug_line    0x00000000000013be      0x228 CM730_HW/src/gyro_acc.o
- .debug_line    0x00000000000015e6      0x210 stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
- .debug_line    0x00000000000017f6       0xd6 stm32f10x_lib/libstm32.a(stm32f10x_bkp.o)
- .debug_line    0x00000000000018cc      0x20a stm32f10x_lib/libstm32.a(stm32f10x_flash.o)
- .debug_line    0x0000000000001ad6      0x182 stm32f10x_lib/libstm32.a(stm32f10x_gpio.o)
- .debug_line    0x0000000000001c58      0x1d2 stm32f10x_lib/libstm32.a(stm32f10x_nvic.o)
- .debug_line    0x0000000000001e2a       0xeb stm32f10x_lib/libstm32.a(stm32f10x_pwr.o)
- .debug_line    0x0000000000001f15      0x1a0 stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
- .debug_line    0x00000000000020b5      0x1c7 stm32f10x_lib/libstm32.a(stm32f10x_spi.o)
- .debug_line    0x000000000000227c       0xb5 stm32f10x_lib/libstm32.a(stm32f10x_systick.o)
- .debug_line    0x0000000000002331      0x4db stm32f10x_lib/libstm32.a(stm32f10x_tim.o)
- .debug_line    0x000000000000280c      0x1da stm32f10x_lib/libstm32.a(stm32f10x_usart.o)
- .debug_line    0x00000000000029e6       0xa4 stm32f10x_lib/libstm32.a(cortexm3_macro.o)
- .debug_line    0x0000000000002a8a       0x63 stm32f10x_lib/libstm32.a(stm32f10x_vector.o)
+ .debug_line    0x0000000000000626      0x3d5 CM730_APP/src/CM_DXL_COM.o
+ .debug_line    0x00000000000009fb       0x99 CM730_HW/src/button.o
+ .debug_line    0x0000000000000a94      0x126 CM730_HW/src/led.o
+ .debug_line    0x0000000000000bba      0x315 CM730_HW/src/system_init.o
+ .debug_line    0x0000000000000ecf      0x1b2 CM730_HW/src/system_func.o
+ .debug_line    0x0000000000001081       0xde CM730_HW/src/adc.o
+ .debug_line    0x000000000000115f      0x16a CM730_HW/src/usart.o
+ .debug_line    0x00000000000012c9      0x115 CM730_HW/src/sound.o
+ .debug_line    0x00000000000013de      0x228 CM730_HW/src/gyro_acc.o
+ .debug_line    0x0000000000001606      0x210 stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
+ .debug_line    0x0000000000001816       0xd6 stm32f10x_lib/libstm32.a(stm32f10x_bkp.o)
+ .debug_line    0x00000000000018ec      0x20a stm32f10x_lib/libstm32.a(stm32f10x_flash.o)
+ .debug_line    0x0000000000001af6      0x182 stm32f10x_lib/libstm32.a(stm32f10x_gpio.o)
+ .debug_line    0x0000000000001c78      0x1d2 stm32f10x_lib/libstm32.a(stm32f10x_nvic.o)
+ .debug_line    0x0000000000001e4a       0xeb stm32f10x_lib/libstm32.a(stm32f10x_pwr.o)
+ .debug_line    0x0000000000001f35      0x1a0 stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
+ .debug_line    0x00000000000020d5      0x1c7 stm32f10x_lib/libstm32.a(stm32f10x_spi.o)
+ .debug_line    0x000000000000229c       0xb5 stm32f10x_lib/libstm32.a(stm32f10x_systick.o)
+ .debug_line    0x0000000000002351      0x4db stm32f10x_lib/libstm32.a(stm32f10x_tim.o)
+ .debug_line    0x000000000000282c      0x1da stm32f10x_lib/libstm32.a(stm32f10x_usart.o)
+ .debug_line    0x0000000000002a06       0xa4 stm32f10x_lib/libstm32.a(cortexm3_macro.o)
+ .debug_line    0x0000000000002aaa       0x63 stm32f10x_lib/libstm32.a(stm32f10x_vector.o)
 
-.debug_frame    0x0000000000000000     0x2438
+.debug_frame    0x0000000000000000     0x2488
  *(.debug_frame)
  .debug_frame   0x0000000000000000      0x46c CM730_APP/src/stm32f10x_it.o
  .debug_frame   0x000000000000046c       0x28 CM730_APP/src/main.o
@@ -1411,103 +1413,103 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/4.9.3/crtn.o
  .debug_frame   0x00000000000007e4      0x160 CM730_HW/src/system_init.o
  .debug_frame   0x0000000000000944       0xf0 CM730_HW/src/system_func.o
  .debug_frame   0x0000000000000a34       0x48 CM730_HW/src/adc.o
- .debug_frame   0x0000000000000a7c       0xf0 CM730_HW/src/usart.o
- .debug_frame   0x0000000000000b6c       0xf0 CM730_HW/src/sound.o
- .debug_frame   0x0000000000000c5c      0x15c CM730_HW/src/gyro_acc.o
- .debug_frame   0x0000000000000db8      0x280 stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
- .debug_frame   0x0000000000001038       0xdc stm32f10x_lib/libstm32.a(stm32f10x_bkp.o)
- .debug_frame   0x0000000000001114      0x1f0 stm32f10x_lib/libstm32.a(stm32f10x_flash.o)
- .debug_frame   0x0000000000001304      0x160 stm32f10x_lib/libstm32.a(stm32f10x_gpio.o)
- .debug_frame   0x0000000000001464      0x204 stm32f10x_lib/libstm32.a(stm32f10x_nvic.o)
- .debug_frame   0x0000000000001668       0xac stm32f10x_lib/libstm32.a(stm32f10x_pwr.o)
- .debug_frame   0x0000000000001714      0x220 stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
- .debug_frame   0x0000000000001934      0x1bc stm32f10x_lib/libstm32.a(stm32f10x_spi.o)
- .debug_frame   0x0000000000001af0       0x70 stm32f10x_lib/libstm32.a(stm32f10x_systick.o)
- .debug_frame   0x0000000000001b60      0x6a8 stm32f10x_lib/libstm32.a(stm32f10x_tim.o)
- .debug_frame   0x0000000000002208      0x200 stm32f10x_lib/libstm32.a(stm32f10x_usart.o)
- .debug_frame   0x0000000000002408       0x30 stm32f10x_lib/libstm32.a(stm32f10x_vector.o)
+ .debug_frame   0x0000000000000a7c      0x140 CM730_HW/src/usart.o
+ .debug_frame   0x0000000000000bbc       0xf0 CM730_HW/src/sound.o
+ .debug_frame   0x0000000000000cac      0x15c CM730_HW/src/gyro_acc.o
+ .debug_frame   0x0000000000000e08      0x280 stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
+ .debug_frame   0x0000000000001088       0xdc stm32f10x_lib/libstm32.a(stm32f10x_bkp.o)
+ .debug_frame   0x0000000000001164      0x1f0 stm32f10x_lib/libstm32.a(stm32f10x_flash.o)
+ .debug_frame   0x0000000000001354      0x160 stm32f10x_lib/libstm32.a(stm32f10x_gpio.o)
+ .debug_frame   0x00000000000014b4      0x204 stm32f10x_lib/libstm32.a(stm32f10x_nvic.o)
+ .debug_frame   0x00000000000016b8       0xac stm32f10x_lib/libstm32.a(stm32f10x_pwr.o)
+ .debug_frame   0x0000000000001764      0x220 stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
+ .debug_frame   0x0000000000001984      0x1bc stm32f10x_lib/libstm32.a(stm32f10x_spi.o)
+ .debug_frame   0x0000000000001b40       0x70 stm32f10x_lib/libstm32.a(stm32f10x_systick.o)
+ .debug_frame   0x0000000000001bb0      0x6a8 stm32f10x_lib/libstm32.a(stm32f10x_tim.o)
+ .debug_frame   0x0000000000002258      0x200 stm32f10x_lib/libstm32.a(stm32f10x_usart.o)
+ .debug_frame   0x0000000000002458       0x30 stm32f10x_lib/libstm32.a(stm32f10x_vector.o)
 
-.debug_str      0x0000000000000000     0x439d
+.debug_str      0x0000000000000000     0x43df
  *(.debug_str)
- .debug_str     0x0000000000000000      0x841 CM730_APP/src/stm32f10x_it.o
-                                        0x898 (size before relaxing)
- .debug_str     0x0000000000000841       0xaf CM730_APP/src/main.o
-                                        0x1e4 (size before relaxing)
- .debug_str     0x00000000000008f0      0x109 CM730_APP/src/isr.o
-                                        0x2b4 (size before relaxing)
- .debug_str     0x00000000000009f9      0x16c CM730_APP/src/zigbee.o
-                                        0x2ac (size before relaxing)
- .debug_str     0x0000000000000b65       0x47 CM730_APP/src/zgb_hal.o
-                                        0x1ac (size before relaxing)
- .debug_str     0x0000000000000bac      0x4c2 CM730_APP/src/CM_DXL_COM.o
-                                        0x76f (size before relaxing)
- .debug_str     0x000000000000106e       0x33 CM730_HW/src/button.o
-                                        0x16d (size before relaxing)
- .debug_str     0x00000000000010a1       0x54 CM730_HW/src/led.o
-                                        0x1ce (size before relaxing)
- .debug_str     0x00000000000010f5      0x9ac CM730_HW/src/system_init.o
-                                        0xcae (size before relaxing)
- .debug_str     0x0000000000001aa1      0x14f CM730_HW/src/system_func.o
-                                        0x322 (size before relaxing)
- .debug_str     0x0000000000001bf0       0x5b CM730_HW/src/adc.o
-                                        0x20b (size before relaxing)
- .debug_str     0x0000000000001c4b       0xb0 CM730_HW/src/usart.o
-                                        0x45c (size before relaxing)
- .debug_str     0x0000000000001cfb      0x2d9 CM730_HW/src/sound.o
-                                        0x57b (size before relaxing)
- .debug_str     0x0000000000001fd4      0x197 CM730_HW/src/gyro_acc.o
-                                        0x3f3 (size before relaxing)
- .debug_str     0x000000000000216b      0x399 stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
-                                        0x6ab (size before relaxing)
- .debug_str     0x0000000000002504      0x306 stm32f10x_lib/libstm32.a(stm32f10x_bkp.o)
-                                        0x566 (size before relaxing)
- .debug_str     0x000000000000280a      0x2d0 stm32f10x_lib/libstm32.a(stm32f10x_flash.o)
-                                        0x50e (size before relaxing)
- .debug_str     0x0000000000002ada      0x17b stm32f10x_lib/libstm32.a(stm32f10x_gpio.o)
-                                        0x483 (size before relaxing)
- .debug_str     0x0000000000002c55      0x45e stm32f10x_lib/libstm32.a(stm32f10x_nvic.o)
-                                        0x6dd (size before relaxing)
- .debug_str     0x00000000000030b3      0x104 stm32f10x_lib/libstm32.a(stm32f10x_pwr.o)
-                                        0x274 (size before relaxing)
- .debug_str     0x00000000000031b7      0x2e9 stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
-                                        0x5b3 (size before relaxing)
- .debug_str     0x00000000000034a0      0x241 stm32f10x_lib/libstm32.a(stm32f10x_spi.o)
-                                        0x5d7 (size before relaxing)
- .debug_str     0x00000000000036e1       0xb6 stm32f10x_lib/libstm32.a(stm32f10x_systick.o)
-                                        0x258 (size before relaxing)
- .debug_str     0x0000000000003797      0x8c0 stm32f10x_lib/libstm32.a(stm32f10x_tim.o)
-                                        0xda4 (size before relaxing)
- .debug_str     0x0000000000004057      0x2cd stm32f10x_lib/libstm32.a(stm32f10x_usart.o)
-                                        0x64e (size before relaxing)
- .debug_str     0x0000000000004324       0x79 stm32f10x_lib/libstm32.a(stm32f10x_vector.o)
-                                        0x18b (size before relaxing)
+ .debug_str     0x0000000000000000      0x871 CM730_APP/src/stm32f10x_it.o
+                                        0x8c8 (size before relaxing)
+ .debug_str     0x0000000000000871       0xa9 CM730_APP/src/main.o
+                                        0x20e (size before relaxing)
+ .debug_str     0x000000000000091a      0x109 CM730_APP/src/isr.o
+                                        0x2e4 (size before relaxing)
+ .debug_str     0x0000000000000a23      0x16c CM730_APP/src/zigbee.o
+                                        0x2dc (size before relaxing)
+ .debug_str     0x0000000000000b8f       0x47 CM730_APP/src/zgb_hal.o
+                                        0x1dc (size before relaxing)
+ .debug_str     0x0000000000000bd6      0x4d0 CM730_APP/src/CM_DXL_COM.o
+                                        0x7a7 (size before relaxing)
+ .debug_str     0x00000000000010a6       0x33 CM730_HW/src/button.o
+                                        0x19d (size before relaxing)
+ .debug_str     0x00000000000010d9       0x54 CM730_HW/src/led.o
+                                        0x1fe (size before relaxing)
+ .debug_str     0x000000000000112d      0x9ac CM730_HW/src/system_init.o
+                                        0xcde (size before relaxing)
+ .debug_str     0x0000000000001ad9      0x14f CM730_HW/src/system_func.o
+                                        0x352 (size before relaxing)
+ .debug_str     0x0000000000001c28       0x5b CM730_HW/src/adc.o
+                                        0x23b (size before relaxing)
+ .debug_str     0x0000000000001c83       0xba CM730_HW/src/usart.o
+                                        0x4a4 (size before relaxing)
+ .debug_str     0x0000000000001d3d      0x2d9 CM730_HW/src/sound.o
+                                        0x5ab (size before relaxing)
+ .debug_str     0x0000000000002016      0x197 CM730_HW/src/gyro_acc.o
+                                        0x423 (size before relaxing)
+ .debug_str     0x00000000000021ad      0x399 stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
+                                        0x6db (size before relaxing)
+ .debug_str     0x0000000000002546      0x306 stm32f10x_lib/libstm32.a(stm32f10x_bkp.o)
+                                        0x596 (size before relaxing)
+ .debug_str     0x000000000000284c      0x2d0 stm32f10x_lib/libstm32.a(stm32f10x_flash.o)
+                                        0x53e (size before relaxing)
+ .debug_str     0x0000000000002b1c      0x17b stm32f10x_lib/libstm32.a(stm32f10x_gpio.o)
+                                        0x4b3 (size before relaxing)
+ .debug_str     0x0000000000002c97      0x45e stm32f10x_lib/libstm32.a(stm32f10x_nvic.o)
+                                        0x70d (size before relaxing)
+ .debug_str     0x00000000000030f5      0x104 stm32f10x_lib/libstm32.a(stm32f10x_pwr.o)
+                                        0x2a4 (size before relaxing)
+ .debug_str     0x00000000000031f9      0x2e9 stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
+                                        0x5e3 (size before relaxing)
+ .debug_str     0x00000000000034e2      0x241 stm32f10x_lib/libstm32.a(stm32f10x_spi.o)
+                                        0x607 (size before relaxing)
+ .debug_str     0x0000000000003723       0xb6 stm32f10x_lib/libstm32.a(stm32f10x_systick.o)
+                                        0x288 (size before relaxing)
+ .debug_str     0x00000000000037d9      0x8c0 stm32f10x_lib/libstm32.a(stm32f10x_tim.o)
+                                        0xdd4 (size before relaxing)
+ .debug_str     0x0000000000004099      0x2cd stm32f10x_lib/libstm32.a(stm32f10x_usart.o)
+                                        0x67e (size before relaxing)
+ .debug_str     0x0000000000004366       0x79 stm32f10x_lib/libstm32.a(stm32f10x_vector.o)
+                                        0x1bb (size before relaxing)
 
-.debug_loc      0x0000000000000000     0x5fb2
+.debug_loc      0x0000000000000000     0x5faf
  *(.debug_loc)
  .debug_loc     0x0000000000000000       0x47 CM730_APP/src/main.o
  .debug_loc     0x0000000000000047      0x189 CM730_APP/src/zigbee.o
  .debug_loc     0x00000000000001d0      0x141 CM730_APP/src/zgb_hal.o
- .debug_loc     0x0000000000000311      0x4a5 CM730_APP/src/CM_DXL_COM.o
- .debug_loc     0x00000000000007b6       0x35 CM730_HW/src/button.o
- .debug_loc     0x00000000000007eb      0x112 CM730_HW/src/led.o
- .debug_loc     0x00000000000008fd       0xbe CM730_HW/src/system_init.o
- .debug_loc     0x00000000000009bb      0x1e4 CM730_HW/src/system_func.o
- .debug_loc     0x0000000000000b9f       0x40 CM730_HW/src/adc.o
- .debug_loc     0x0000000000000bdf      0x13a CM730_HW/src/usart.o
- .debug_loc     0x0000000000000d19       0x7e CM730_HW/src/sound.o
- .debug_loc     0x0000000000000d97       0xe0 CM730_HW/src/gyro_acc.o
- .debug_loc     0x0000000000000e77      0xb1b stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
- .debug_loc     0x0000000000001992       0xee stm32f10x_lib/libstm32.a(stm32f10x_bkp.o)
- .debug_loc     0x0000000000001a80      0x6ad stm32f10x_lib/libstm32.a(stm32f10x_flash.o)
- .debug_loc     0x000000000000212d      0x527 stm32f10x_lib/libstm32.a(stm32f10x_gpio.o)
- .debug_loc     0x0000000000002654      0x91a stm32f10x_lib/libstm32.a(stm32f10x_nvic.o)
- .debug_loc     0x0000000000002f6e      0x156 stm32f10x_lib/libstm32.a(stm32f10x_pwr.o)
- .debug_loc     0x00000000000030c4      0x69d stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
- .debug_loc     0x0000000000003761      0x569 stm32f10x_lib/libstm32.a(stm32f10x_spi.o)
- .debug_loc     0x0000000000003cca       0xe7 stm32f10x_lib/libstm32.a(stm32f10x_systick.o)
- .debug_loc     0x0000000000003db1     0x1962 stm32f10x_lib/libstm32.a(stm32f10x_tim.o)
- .debug_loc     0x0000000000005713      0x85c stm32f10x_lib/libstm32.a(stm32f10x_usart.o)
- .debug_loc     0x0000000000005f6f       0x43 stm32f10x_lib/libstm32.a(stm32f10x_vector.o)
+ .debug_loc     0x0000000000000311      0x4a2 CM730_APP/src/CM_DXL_COM.o
+ .debug_loc     0x00000000000007b3       0x35 CM730_HW/src/button.o
+ .debug_loc     0x00000000000007e8      0x112 CM730_HW/src/led.o
+ .debug_loc     0x00000000000008fa       0xbe CM730_HW/src/system_init.o
+ .debug_loc     0x00000000000009b8      0x1e4 CM730_HW/src/system_func.o
+ .debug_loc     0x0000000000000b9c       0x40 CM730_HW/src/adc.o
+ .debug_loc     0x0000000000000bdc      0x13a CM730_HW/src/usart.o
+ .debug_loc     0x0000000000000d16       0x7e CM730_HW/src/sound.o
+ .debug_loc     0x0000000000000d94       0xe0 CM730_HW/src/gyro_acc.o
+ .debug_loc     0x0000000000000e74      0xb1b stm32f10x_lib/libstm32.a(stm32f10x_adc.o)
+ .debug_loc     0x000000000000198f       0xee stm32f10x_lib/libstm32.a(stm32f10x_bkp.o)
+ .debug_loc     0x0000000000001a7d      0x6ad stm32f10x_lib/libstm32.a(stm32f10x_flash.o)
+ .debug_loc     0x000000000000212a      0x527 stm32f10x_lib/libstm32.a(stm32f10x_gpio.o)
+ .debug_loc     0x0000000000002651      0x91a stm32f10x_lib/libstm32.a(stm32f10x_nvic.o)
+ .debug_loc     0x0000000000002f6b      0x156 stm32f10x_lib/libstm32.a(stm32f10x_pwr.o)
+ .debug_loc     0x00000000000030c1      0x69d stm32f10x_lib/libstm32.a(stm32f10x_rcc.o)
+ .debug_loc     0x000000000000375e      0x569 stm32f10x_lib/libstm32.a(stm32f10x_spi.o)
+ .debug_loc     0x0000000000003cc7       0xe7 stm32f10x_lib/libstm32.a(stm32f10x_systick.o)
+ .debug_loc     0x0000000000003dae     0x1962 stm32f10x_lib/libstm32.a(stm32f10x_tim.o)
+ .debug_loc     0x0000000000005710      0x85c stm32f10x_lib/libstm32.a(stm32f10x_usart.o)
+ .debug_loc     0x0000000000005f6c       0x43 stm32f10x_lib/libstm32.a(stm32f10x_vector.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -2350,6 +2352,7 @@ exit                                              /usr/bin/../lib/gcc/arm-none-e
                                                   /usr/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/crt0.o
 free                                              /usr/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
 g_pfnVectors                                      stm32f10x_lib/libstm32.a(stm32f10x_vector.o)
+g_usartPC                                         CM730_HW/src/usart.o
 gbBuzzerData                                      CM730_HW/src/sound.o
 gbBuzzerPlayLength                                CM730_HW/src/sound.o
 gbDXLForwarding                                   CM730_HW/src/usart.o
@@ -2470,6 +2473,8 @@ setBuzzerPlayLength                               CM730_HW/src/sound.o
                                                   CM730_APP/src/CM_DXL_COM.o
                                                   CM730_APP/src/isr.o
 software_init_hook                                /usr/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/crt0.o
+startPCTxData                                     CM730_HW/src/usart.o
+                                                  CM730_APP/src/CM_DXL_COM.o
 tmpdly                                            CM730_HW/src/system_func.o
 uDelay                                            CM730_HW/src/system_func.o
                                                   CM730_APP/src/CM_DXL_COM.o

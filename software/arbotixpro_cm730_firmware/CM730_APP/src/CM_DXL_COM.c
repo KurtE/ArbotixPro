@@ -370,8 +370,7 @@ void TorqueOff(void)
 void Process(void)
 {
   byte bCount, bLength, bEndAddress, bCount0xff, bCheckSum, bReturn,bPrevID;;
-  word wTemp;
-  byte bTemp;
+//  byte bTemp;
 
 
   GB_ID = DEFAULT_ID;
@@ -700,15 +699,7 @@ void Process(void)
 				   gbpTxD1Buffer[gbTxD1BufferWritePointer++] = bCheckSum;
 				   gbpTxD0Buffer[gbTxD0BufferWritePointer++]= bCheckSum;
 
-
-
-					if (gbTxD1Transmitting==0) {
-					  gbTxD1Transmitting = 1;
-					//  if (TXD1_FINISH) {
-						USART_SendData(USART3, gbpTxD1Buffer[gbTxD1BufferReadPointer++]);
-						USART_ITConfig(USART3, USART_IT_TC, ENABLE);
-						//TXD1_DATA = gbpTxD1Buffer[gbTxD1BufferReadPointer++];
-					}
+                    startPCTxData();
 
 					if ( GPIO_ReadOutputDataBit(PORT_ENABLE_TXD, PIN_ENABLE_TXD) == Bit_RESET) {
 						//TxDString(USART_ZIGBEE,"\r\n TEST0");
@@ -918,15 +909,9 @@ void ReturnPacket(byte bError)
     gbpTxD1Buffer[gbTxD1BufferWritePointer++] = 2;
     gbpTxD1Buffer[gbTxD1BufferWritePointer++] = bError;
     gbpTxD1Buffer[gbTxD1BufferWritePointer++] = bCheckSum;
-
-    if (gbTxD1Transmitting==0) {
-      gbTxD1Transmitting = 1;
-    //  if (TXD1_FINISH) {
-		USART_SendData(USART3, gbpTxD1Buffer[gbTxD1BufferReadPointer++]);
-		USART_ITConfig(USART3, USART_IT_TC, ENABLE);
-      //TXD1_DATA = gbpTxD1Buffer[gbTxD1BufferReadPointer++];
-    }
-
+    
+    // Send all of the currently buffered data. 
+    startPCTxData();
     while(gbTxD1Transmitting);
 
   }

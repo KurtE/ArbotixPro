@@ -15,7 +15,7 @@ unsigned short gwMyZigbeeID;
 
 int zgb_initialize( int devIndex )
 {
-	if( zgb_hal_open( devIndex, 57600 ) == 0) // Always fixed baudrate
+	if( zgb_hal_open( devIndex, XBEE_PORT_BAUD ) == 0) // Always fixed baudrate
 		return 0;
 
 	gbRcvFlag = 0;

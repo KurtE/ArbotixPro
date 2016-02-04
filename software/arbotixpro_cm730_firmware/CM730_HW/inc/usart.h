@@ -24,6 +24,7 @@
 /* Exported functions ------------------------------------------------------- */
 
 void TxDData(u8 PORT, u8 dat);
+void startPCTxData(void);
 u8 RxDBuffer(u8 PORT);
 void BufferClear(u8 PORT);
 u8 IsRXD_Ready(u8 PORT);
