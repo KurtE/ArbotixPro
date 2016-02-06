@@ -111,56 +111,9 @@ void startPCTxData(void)
 }
 
 
+#ifndef OPTION_XBEE_AS_PC
 void __ISR_USART_ZIGBEE(void)
 {
-#ifdef OPTION_XBEE_AS_PC
-	u16 ReceivedData;
-
-	if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET)
-	{
-		// Read one byte from the receive data register
-		ReceivedData = USART_ReceiveData(UART5); 
-        g_usartPC = UART5; // Remember that this the last PC connection we received data from...
-
-
-		//LED_SetState(LED_TX, ON); //Rob disbaled 12/23/2011
-
-		gbpTxD0Buffer[gbTxD0BufferWritePointer] = gbpRxInterruptBuffer[gbRxBufferWritePointer] =   gbpRxD1Buffer[gbRxD1BufferWritePointer] = ReceivedData;
-		gbRxBufferWritePointer++;
-		gbRxD1BufferWritePointer++;
-		gbTxD0BufferWritePointer++;
-
-
-		//if (TXD0_READY) {
-
-
-		if(gbDXLForwarding)
-		{
-			if ( GPIO_ReadOutputDataBit(PORT_ENABLE_TXD, PIN_ENABLE_TXD) == Bit_RESET) {
-				//if (TXD0_FINISH) {
-				GPIO_ResetBits(PORT_ENABLE_RXD, PIN_ENABLE_RXD);	// RX Disable
-				GPIO_SetBits(PORT_ENABLE_TXD, PIN_ENABLE_TXD);	// TX Enable
-
-				USART_SendData(USART1, gbpTxD0Buffer[gbTxD0BufferReadPointer++]);
-				//gbTxD0BufferReadPointer &= 0x3FF;
-				USART_ITConfig(USART1, USART_IT_TC, ENABLE);
-			}
-		}
-
-	}
-	else if(USART_GetITStatus(UART5, USART_IT_TC) != RESET)
-	{
-		if (gbTxD1BufferReadPointer!=gbTxD1BufferWritePointer) {
-			USART_SendData(UART5, gbpTxD1Buffer[gbTxD1BufferReadPointer++]);
-			//gbTxD1BufferReadPointer&= 0x3FF;
-		}
-		else {
-			//LED_SetState(LED_RX, OFF);
-			gbTxD1Transmitting = 0;
-			USART_ITConfig(UART5, USART_IT_TC, DISABLE);
-		}
-	}
-#else
 	u16 ReceivedData;
 	
 	//GPIO_ResetBits(GPIOB, GPIO_Pin_14);
@@ -172,19 +125,19 @@ void __ISR_USART_ZIGBEE(void)
 		gwpUSART_ZIGBEE_Buffer[(++gwUSART_ZIGBEE_WritePtr)&USART_BUFFER_SIZE] = ReceivedData;	
 		//TxDHex8(ReceivedData);
 	}
-#endif    
 }
+#endif    
 
 
-void __ISR_USART_PC(void)
+void __ISR_USART_PC(USART_TypeDef* usartPC)
 {
 	u16 ReceivedData;
 
-	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)
+	if(USART_GetITStatus(usartPC, USART_IT_RXNE) != RESET)
 	{
 		// Read one byte from the receive data register
-		ReceivedData = USART_ReceiveData(USART3); 
-        g_usartPC = USART3; // Remember that this the last PC connection we received data from...
+		ReceivedData = USART_ReceiveData(usartPC); 
+        g_usartPC = usartPC; // Remember that this the last PC connection we received data from...
 
 		//LED_SetState(LED_TX, ON); //Rob disbaled 12/23/2011
 
@@ -211,16 +164,16 @@ void __ISR_USART_PC(void)
 		}
 
 	}
-	else if(USART_GetITStatus(USART3, USART_IT_TC) != RESET)
+	else if(USART_GetITStatus(usartPC, USART_IT_TC) != RESET)
 	{
 		if (gbTxD1BufferReadPointer!=gbTxD1BufferWritePointer) {
-			USART_SendData(USART3, gbpTxD1Buffer[gbTxD1BufferReadPointer++]);
+			USART_SendData(usartPC, gbpTxD1Buffer[gbTxD1BufferReadPointer++]);
 			//gbTxD1BufferReadPointer&= 0x3FF;
 		}
 		else {
 			//LED_SetState(LED_RX, OFF);
 			gbTxD1Transmitting = 0;
-			USART_ITConfig(USART3, USART_IT_TC, DISABLE);
+			USART_ITConfig(usartPC, USART_IT_TC, DISABLE);
 		}
 	}
 

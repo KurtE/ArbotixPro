@@ -34,7 +34,7 @@ u32 Baudrate_DXL = 	1000000;
 u32 Baudrate_ZIGBEE = 57600;
 //u32 Baudrate_PC = 57600;
 u32 Baudrate_PC = 1000000;
-
+u32 BaudRate_ADC = 1000000;  // Optional USART using ADC pins...
 //u8 SPI_Data_Transmit_Complete=FALSE;
 
 /* Private function prototypes -----------------------------------------------*/
@@ -69,6 +69,9 @@ void System_Configuration(void)
 	//USART_Configuration(USART_PC,3000000);
 	USART_Configuration(USART_PC,Baudrate_PC);
 
+#ifdef OPTION_USE_ADC67_AS_USART    
+    USART_Configuration(USART_ADC, ADC_PORT_BAUD);
+#endif
 
 	/* ADC Configuration */
 	ADC_Configuration();
@@ -96,9 +99,6 @@ void System_Configuration(void)
 
 	Gyro_Configuration();
 	ACC_Configuration();
-
-
-
 
 
 
@@ -353,6 +353,25 @@ void USART_Configuration(u8 PORT, u32 baudrate)
 		/* Enable the USART3 */
 		USART_Cmd(USART3, ENABLE);
 	}
+    
+#ifdef OPTION_USE_ADC67_AS_USART   // Use Analog pins 6,7 as USART 2 pins to talk to PC...
+	else if( PORT == USART_ADC )
+	{
+		BaudRate_ADC = baudrate;
+		
+		USART_DeInit(USART2);
+		
+		/* Configure the USART3 */
+		USART_Init(USART2, &USART_InitStructure);
+
+		/* Enable USART3 Receive and Transmit interrupts */
+		USART_ITConfig(USART2, USART_IT_RXNE, ENABLE);
+		//USART_ITConfig(USART2, USART_IT_TC, ENABLE);
+		
+		/* Enable the USART3 */
+		USART_Cmd(USART2, ENABLE);
+	}
+#endif	
 	
 }
 u32 USART_GetBaudrate(u8 PORT)
@@ -370,7 +389,6 @@ u32 USART_GetBaudrate(u8 PORT)
 	{
 		return Baudrate_PC;
 	}
-	
 	return 0;
 }
 
@@ -504,16 +522,27 @@ void GPIO_Configuration(void)
 //	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;
 //	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
-
+#ifdef OPTION_USE_ADC67_AS_USART   // Use Analog pins 6,7 as USART 2 pins to talk to PC...
+	GPIO_InitStructure.GPIO_Pin = PIN_CPU_RXD | PIN_ADC_RXD;
+#else
 	GPIO_InitStructure.GPIO_Pin = PIN_CPU_RXD;
+#endif
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
+#ifdef OPTION_USE_ADC67_AS_USART   // Use Analog pins 6,7 as USART 2 pins to talk to PC...
+	GPIO_InitStructure.GPIO_Pin = PIN_ADC4 | PIN_ADC5 | PIN_ADC8 | PIN_ADC9 | PIN_ADC10 | PIN_ADC11 ;
+#else
 	GPIO_InitStructure.GPIO_Pin = PIN_ADC4 | PIN_ADC5 | PIN_ADC6 | PIN_ADC7 | PIN_ADC8 | PIN_ADC9 | PIN_ADC10 | PIN_ADC11 ;
+#endif
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
+#ifdef OPTION_USE_ADC67_AS_USART   // Use Analog pins 6,7 as USART 2 pins to talk to PC...
+	GPIO_InitStructure.GPIO_Pin = PIN_CPU_TXD | PIN_ADC_TXD;
+#else
 	GPIO_InitStructure.GPIO_Pin = PIN_CPU_TXD;
+#endif
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);

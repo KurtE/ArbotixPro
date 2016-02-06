@@ -12,6 +12,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_type.h"
+#include "stm32f10x_map.h"
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 
@@ -19,6 +20,7 @@
 #define USART_ZIGBEE		1
 #define USART_IR			1
 #define USART_PC			2
+#define USART_ADC           3 // Optional
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
@@ -31,7 +33,7 @@ u8 IsRXD_Ready(u8 PORT);
 
 void __ISR_USART_DXL(void);
 void __ISR_USART_ZIGBEE(void);
-void __ISR_USART_PC(void);
+void __ISR_USART_PC(USART_TypeDef* usartPC);
 void enableDXLForwarding();
 
 

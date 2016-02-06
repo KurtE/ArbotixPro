@@ -16,6 +16,8 @@
 
 /* Kurt's option defines -----------------------------------------------------*/
 #define OPTION_XBEE_AS_PC   1   // if defined use the XBee port as an alternate to the USB
+#define OPTION_USE_ADC67_AS_USART 1   // Use Analog pins 6,7 as USART 2 pins to talk to PC...
+#define ADC_PORT_BAUD   1000000
 #ifdef OPTION_XBEE_AS_PC
 #define XBEE_PORT_BAUD  1000000
 #else
@@ -26,7 +28,9 @@
 #define PIN_ADC4				GPIO_Pin_0
 #define PIN_ADC5				GPIO_Pin_1
 #define PIN_ADC6				GPIO_Pin_2
+#define PIN_ADC_TXD             GPIO_Pin_2  // Optional use ADC 6 and 7 as USART
 #define PIN_ADC7				GPIO_Pin_3
+#define PIN_ADC_RXD             GPIO_Pin_3
 #define PIN_ADC8				GPIO_Pin_4
 #define PIN_ADC9				GPIO_Pin_5
 #define PIN_ADC10				GPIO_Pin_6

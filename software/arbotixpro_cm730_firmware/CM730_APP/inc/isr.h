@@ -20,6 +20,7 @@
 void ISR_USART_DXL(void);
 void ISR_USART_ZIGBEE(void);
 void ISR_USART_PC(void);
+void ISR_USART_USART2(void);
 
 void ISR_LED_RGB_TIMER(void);
 

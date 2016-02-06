@@ -106,14 +106,22 @@ void ISR_USART_DXL(void)
 }
 void ISR_USART_ZIGBEE(void)
 {
+#ifdef OPTION_XBEE_AS_PC
+	__ISR_USART_PC(UART5);
+#else
 	__ISR_USART_ZIGBEE();
+#endif
 }
 
 void ISR_USART_PC(void)
 {
-	__ISR_USART_PC();
+	__ISR_USART_PC(USART3);
 }
 
+void ISR_USART_USART2(void) // optional if we decide we want USART4 which is TTL on A6/A7 as alternate to talk to pc
+{
+	__ISR_USART_PC(USART2);
+}
 
 
 void ISR_LED_RGB_TIMER(void)
