@@ -61,9 +61,13 @@ void System_Configuration(void)
 
 	/* USART Configuration */
 	USART_Configuration(USART_DXL,Baudrate_DXL);
+
 	//dxl_initialize(USART_DXL,Baudrate_DXL);
+#ifdef OPTION_XBEE_AS_PC
+	USART_Configuration(USART_ZIGBEE,XBEE_PORT_BAUD);
+#else
 	zgb_initialize(0);
-	//USART_Configuration(USART_ZIGBEE,Baudrate_ZIGBEE);
+#endif
 
 	//USART_Configuration(USART_PC,1000000);
 	//USART_Configuration(USART_PC,3000000);
